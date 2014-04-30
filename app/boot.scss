@@ -1,0 +1,23 @@
+@import './bower_components/bootstrap-sass/lib/bootstrap';
+@import './bower_components/font-awesome/scss/font-awesome';
+
+$header-height: 50px;
+
+body {
+  padding-top: $header-height;
+}
+
+.navbar-nav {
+  float: right;
+  a {
+    font-size: 20px;
+  }
+}
+
+#map-widget {
+  position: absolute;
+  top: $header-height;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

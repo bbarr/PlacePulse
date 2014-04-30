@@ -1,0 +1,30 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "authors": [
+    "bbarr <bbarr1384@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rivets": "~0.6.7",
+    "underscore": "~1.6.0",
+    "backbone": "*",
+    "jquery": " *",
+    "lodash": "~2.4.1",
+    "toast": "~1.2.2",
+    "widget": "../../widget",
+    "bootstrap-sass": "~3.0.2",
+    "font-awesome": "~4.0.3"
+  }
+}
