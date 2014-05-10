@@ -177,7 +177,11 @@ var Widget = Backbone.Model.extend({
   }),
 
   show: fluent(function() {
-    this.set('visible', true)
+    if (!this.get('running')) {
+      this.start()
+    } else {
+      this.set('visible', true)
+    }
   }),
 
   hide: fluent(function() {

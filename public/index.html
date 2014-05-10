@@ -10,15 +10,22 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <a class="navbar-brand">TownPulse</a>
-        <ul class="nav navbar-nav">
-          <li><a href="#"><i class="fa fa-user"></i></a></li>
+        <ul rv-hide=":currentUser" class="nav navbar-nav">
+          <li><a href="#" rv-on-click="showOnboarding | preventDefault">Sign up/Log in</a></li>
+        </ul>
+        <ul rv-show=":currentUser" class="nav navbar-nav">
+          <li><a href="#" rv-on-click="logout | preventDefault">Log out</a></li>
+          <li><a href="#" rv-on-click="showMenu | preventDefault">Menu</a></li>
         </ul>
       </div>
     </div>
 
 
-    <div id="map-widget" rv-widget data-widget-name="map"> </div>
+    <div id="map-widget" rv-widget data-widget-name="map"></div>
+    <div id="places-list" rv-widget data-widget-name="places-list"></div>
 
+    <div rv-widget data-widget-name="onboarding"></div>
+    <div rv-widget data-widget-name="menu"></div>
   </div>
 
   <script src="/js/boot.js"></script>

@@ -1,10 +1,14 @@
-@import './bower_components/bootstrap-sass/lib/bootstrap';
+@import './bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import './bower_components/font-awesome/scss/font-awesome';
 
-$header-height: 50px;
+$header-height: 56px;
 
 body {
   padding-top: $header-height;
+}
+
+.navbar-brand {
+  font-size: 24px;
 }
 
 .navbar-nav {
@@ -20,4 +24,9 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+#places-list {
+  position: absolute;
+
 }

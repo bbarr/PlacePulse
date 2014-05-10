@@ -1,5 +1,6 @@
 var rivets = require('rivets')
 var _ = require('lodash')
+var $ = require('jquery')
 
 rivets.adapters['.'] = {
   subscribe: function(obj, keypath, callback) { },
@@ -26,6 +27,10 @@ rivets.adapters[':'] = {
   publish: function(obj, keypath, value) {
     obj.set(keypath, value)
   }
+}
+
+rivets.binders.modal = function(el) {
+  $(el).modal()
 }
 
 rivets.formatters.last = function(arr) {
