@@ -2,13 +2,20 @@
 var asWidget = require('widget')
 var rivets = require('rivets')
 
-module.exports = asWidget('map', function() {
+// injects global L
+require('mapbox.js')
+
+module.exports = asWidget('map', function(hub) {
+
+  var map 
 
   rivets.binders.map = function(el) {
-    new google.maps.Map(el, {
-      center: new google.maps.LatLng(-34.397, 150.644),
-      zoom: 8
-    })
+    setTimeout(function() {
+      map = L.mapbox.map('map', 'bbarr.map-tvg4iseh', {
+        center: [ 41.7898313, -69.9897397 ],
+        zoom: 12
+      })
+    }, 10)
   }
 
   var widget = this
@@ -17,11 +24,16 @@ module.exports = asWidget('map', function() {
 
     widget
       .template('/boo.html')
-      .assets([
-        '/boo.css',
-        [ "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&.js", function() { return google.maps.Map } ],
-      ], function() {
+      .assets([ 'https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' ], function() {
         widget.start()
       })
+
+    hub.on('placesLoaded', function(places) {
+      places
+        .filter(function(place) { return place.location.latitude })
+        .forEach(function(place) {
+          L.marker([ place.location.latitude, place.location.longitude ]).addTo(map)
+        })
+    })
   })
 })

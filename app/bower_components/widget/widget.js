@@ -8,6 +8,31 @@ var toast = require('toast')
 // this is the event hub that all modules will have access to
 var hub = _.extend({}, Backbone.Events)
 
+function needable(obj) {
+
+  var _cache = {}
+  var _trigger = obj.trigger
+
+  obj.trigger = function(name) {
+    _cache[name] = _.toArray(arguments).slice(1) 
+    _trigger.apply(obj, arguments)
+  }
+
+  obj.need = function(name, cb, scope) {
+    if (_cache[name]) {
+      cb.apply(scope, _cache[name])
+    } else {
+      obj.once(name, cb)
+    }
+  }
+}
+
+needable(hub)
+
+Backbone.Model.prototype.initialize = function() {
+  needable(this)
+}
+
 // here are some utilities
 function argsAsArray(args) {
   return _.flatten(_.toArray(args))
@@ -177,11 +202,7 @@ var Widget = Backbone.Model.extend({
   }),
 
   show: fluent(function() {
-    if (!this.get('running')) {
-      this.start()
-    } else {
-      this.set('visible', true)
-    }
+    this.set('visible', true)
   }),
 
   hide: fluent(function() {

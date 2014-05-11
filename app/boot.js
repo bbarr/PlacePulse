@@ -4,14 +4,14 @@ require('./rivets_config')
 var Backbone = require('backbone')
 var hub = require('widget').hub
 var $ = require('jquery')
+var cats = require('./util/place_categories')
+window.hub = hub
 
 $.ajaxSetup({
   xhrFields: {
     withCredentials: true
   }
 })
-
-require('./features/map/widgets/map_widget')
 
 // require all widgets
 
@@ -21,7 +21,9 @@ var VM = Backbone.Model.extend({
     hub.on('authenticationChanged', this.set.bind(this, 'currentUser'))
     hub.trigger('logged?')
   },
-  
+
+  placeCategories: cats,
+
   showOnboarding: function() {
     hub.trigger('showOnboarding')
   },

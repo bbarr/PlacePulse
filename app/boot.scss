@@ -2,6 +2,7 @@
 @import './bower_components/font-awesome/scss/font-awesome';
 
 $header-height: 56px;
+$sidebar-width: 300px;
 
 body {
   padding-top: $header-height;
@@ -21,12 +22,20 @@ body {
 #map-widget {
   position: absolute;
   top: $header-height;
-  right: 0;
+  right: $sidebar-width;
   bottom: 0;
   left: 0;
 }
 
 #places-list {
   position: absolute;
+  right: 0;
+  top: $header-height;
+  bottom: 0;
+  width: $sidebar-width;
+}
 
+#map {
+  height: 100%;
+  width: 100%;
 }

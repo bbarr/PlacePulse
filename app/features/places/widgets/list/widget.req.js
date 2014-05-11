@@ -9,4 +9,10 @@ module.exports = asWidget('places-list', function(hub) {
     .on('installed', function() {
       widget.start()
     })
+
+  hub.on('placesLoaded', function(places) {
+    widget.set('places', places)
+  })
+
+  hub.trigger('findPlaces')
 })
