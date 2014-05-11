@@ -5823,8 +5823,32 @@ body {
   right: 0;
   top: 56px;
   bottom: 0;
+  overflow-y: auto;
   width: 300px; }
 
 #map {
   height: 100%;
   width: 100%; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+li.list-place {
+  padding-left: 5px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #E6E6E6; }
+  li.list-place:hover {
+    background: #DFF2FA; }
+  li.list-place .index {
+    float: left;
+    margin-right: 0.5%;
+    position: relative;
+    text-align: left;
+    width: 20px;
+    padding-top: 15px; }
+  li.list-place .details {
+    margin-left: 1%;
+    padding: 1.5%;
+    overflow: hidden; }

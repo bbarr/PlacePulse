@@ -1,6 +1,10 @@
 <h3>Places</h3>
 <ul>
-  <li rv-each-place="widget:places">
-    <h4>{ place.name }</h4>
+  <li class="list-place" rv-each-place="widget:places | includeIndex">
+  	<p class="index">{ place.index }</p>
+  		<div class="details">
+    		<h4>{ place.name }</h4>
+    		<p>{ place.location.street }</p>
+    	</div>
   </li>
 </ul>

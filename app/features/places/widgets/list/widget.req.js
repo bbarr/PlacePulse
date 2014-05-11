@@ -4,6 +4,8 @@ var asWidget = require('widget')
 module.exports = asWidget('places-list', function(hub) {
   var widget = this
 
+  widget.attributes.places = []
+
   widget
     .template('/features/places/widgets/list/template.html')
     .on('installed', function() {

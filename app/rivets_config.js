@@ -29,6 +29,13 @@ rivets.adapters[':'] = {
   }
 }
 
+rivets.formatters.includeIndex = function(arr) {
+  return arr.map(function(item, i) {
+    item.index = i + 1
+    return item
+  })
+}
+
 rivets.binders.modal = function(el) {
   $(el).modal()
 }
