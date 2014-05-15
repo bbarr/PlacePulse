@@ -12,6 +12,16 @@ module.exports = asWidget('places-list', function(hub) {
       widget.start()
     })
 
+  widget.select = function(_, _, binding) {
+    var place = binding.view.models.place
+    hub.trigger('placeSelected', place)
+  }
+
+  widget.addToList = function(e, _, binding) {
+    var place = binding.view.models.place
+    hub.trigger('showListPicker', place, e.target)
+  }
+
   hub.on('placesLoaded', function(places) {
     widget.set('places', places)
   })

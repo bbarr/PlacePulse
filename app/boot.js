@@ -4,7 +4,6 @@ require('./rivets_config')
 var Backbone = require('backbone')
 var hub = require('widget').hub
 var $ = require('jquery')
-var cats = require('./util/place_categories')
 window.hub = hub
 
 $.ajaxSetup({
@@ -22,8 +21,6 @@ var VM = Backbone.Model.extend({
     hub.trigger('logged?')
   },
 
-  placeCategories: cats,
-
   showOnboarding: function() {
     hub.trigger('showOnboarding')
   },
@@ -34,7 +31,14 @@ var VM = Backbone.Model.extend({
 
   logout: function() {
     hub.trigger('logout')
+  },
+
+  showFilters: function() {
+    hub.trigger('showFilters')
   }
 })
 
 rivets.bind(document.getElementById('app'), new VM)
+
+hub.trigger('showFilters')
+

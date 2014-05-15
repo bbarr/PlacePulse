@@ -1,28 +1,31 @@
 <div class="row">
-  <div class="col-xs-6">
-    <form>
-      <div class="form-group">
-        <input placeholder="Name" class="form-control input-lg" type="text" rv-value="widget.place:name">
-      </div>
-      <div class="form-group">
-        <img src="http://placehold.it/100x100" />
-      </div>
-      <div class="form-group">
-        <select placeholder="Category" class="form-control input-lg" rv-value="widget.place:category">
-          <option selected disabled value="">Category</option>
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-          <option value="3">Category 3</option>
-        </select>
-      </div>
-    </form>
+  <div rv-hide="widget:selected" class="col-xs-12">
+    <ul>
+      <li rv-on-click="widget.select" rv-each-layer="widget:layers">
+        { layer.name }
+      </li>
+    </ul>
   </div>
-  <div class="col-xs-6">
-    <h4>Places</h4>
-    <div class="form-group">
-      <span>Name Address</span>
-      <textarea class="form-control input-lg" placeholder="Notes"></textarea>
+  <div rv-show="widget:selected">
+    <div class="col-xs-6">
+      <a href="#" rv-on-click="widget.unselect | preventDefault"><< Back to list of layers</a>
+      <br />
+      <a href="#" rv-on-click="widget.save | preventDefault"> SAVE</a>
+      <form>
+        <div class="form-group">
+          <input placeholder="Name" class="form-control" type="text" rv-value="widget:selected:name">
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Description" class="form-control" rv-value="widget:selected:description"></textarea>
+        </div>
+      </form>
     </div>
-    <button class="btn btn-primary">Add Place</button>
+    <div class="col-xs-6">
+      <h4>Places</h4>
+      <div rv-each-place="widget:selected:places" class="form-group">
+        <span>{ place:name }</span>
+        <textarea rv-value="place:notes" class="form-control" placeholder="Notes"></textarea>
+      </div>
+    </div>
   </div>
 </div>

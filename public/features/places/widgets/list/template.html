@@ -1,10 +1,11 @@
 <h3>Places</h3>
 <ul>
-  <li class="list-place" rv-each-place="widget:places | includeIndex">
-  	<p class="index">{ place.index }</p>
-  		<div class="details">
-    		<h4>{ place.name }</h4>
-    		<p>{ place.location.street }</p>
-    	</div>
+  <li rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select">
+  	<p class="index">{ place:index }</p>
+    <div class="details">
+      <h4>{ place:name }</h4>
+      <p>{ place:location.street }</p>
+      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
+    </div>
   </li>
 </ul>

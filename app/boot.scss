@@ -3,6 +3,10 @@
 
 $header-height: 56px;
 $sidebar-width: 300px;
+$silver: #ccc;
+$white: #fff;
+$cornflower-blue: #6495ED;
+$black: #000;
 
 body {
   padding-top: $header-height;
@@ -16,6 +20,25 @@ body {
   float: right;
   a {
     font-size: 20px;
+  }
+}
+
+#list-picker {
+  position: absolute;
+  width: 200px;
+  box-sizing: border-box;
+  border: 1px solid $silver;
+  background: #fff;
+  padding: 10px;
+  strong {
+    border-bottom: 1px solid $silver;
+  }
+  .arrow {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    font-size: 30px;
+    color: $white;
   }
 }
 
@@ -43,30 +66,69 @@ body {
 
 
 ul {
-list-style: none;
-margin: 0;
-padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 li.list-place {
-  padding-left:5px;
-  background:#fdfdfd;
+
+  background: #fdfdfd;
   border-bottom: 1px solid #E6E6E6;
-  
-  &:hover {
-    background:#DFF2FA;
-  }
-  .index {
-    float: left;
-    margin-right: 0.5%;
-    position: relative;
-    text-align: left;
-    width: 20px;
-    padding-top:15px;
-  }
-  .details {
-  margin-left: 1%;
-  padding: 1.5%;
-  overflow: hidden;
+  padding-left: 40px;
+  position: relative;
+
+  h4 {
+    margin: 0;
   }
 
+  .details {
+    padding: 5px 0;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  p {
+    margin: 0 0 5px;
+  }
+
+  .addToList {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 3px;
+    visibility: hidden;
+    color: $cornflower-blue;
+    background: transparent;
+    border: none;
+  }
+  &:hover .addToList {
+    visibility: visible;
+  } 
+  &:hover, &.active {
+    background:#DFF2FA;
+  }
+
+  p.index {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    margin-top: -10px;
+    font-size: 20px;
+    line-height: 20px;
+    width: 40px;
+  }
+}
+
+.leaflet-marker-icon {
+  border-radius: 32px;
+  font-size: 16px;
+  height: 32px !important;
+  width: 32px !important;
+  margin-left: -16px !important;
+  margin-top: -16px !important;
+  background: white;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 28px !important;
 }

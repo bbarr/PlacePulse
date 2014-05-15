@@ -89,6 +89,17 @@ rivets.formatters.preventDefault = function(fn) {
   }
 }
 
+rivets.binders.autoscroll = function(el, selected) {
+  if (!selected) return
+  var container = el.parentNode.parentNode
+  var elTop = el.getBoundingClientRect().top
+  if (elTop < 0) {
+    el.scrollIntoView(true)
+  } else if (elTop > container.scrollTop + container.clientHeight) {
+    el.scrollIntoView(false)
+  }
+}
+
 rivets.configure({
   handler: function(target, event, binding) {
     this.call(binding.model, event, target, binding)

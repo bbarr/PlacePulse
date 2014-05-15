@@ -8,6 +8,7 @@ var browserify = require('browserify')
 var debowerify = require('debowerify')
 var source = require('vinyl-source-stream')
 var through = require('through')
+var reload = require('gulp-livereload')
 
 gulp.task('test', [ 'test:units', 'test:features' ])
 
@@ -27,6 +28,7 @@ gulp.task('buildCSS', function () {
   gulp.src([ './app/boot.scss' ])
     .pipe(sass())
     .pipe(gulp.dest('./public/css'))
+    .pipe(reload())
 });
 
 gulp.task('buildHTML', function() {
