@@ -29,6 +29,12 @@ rivets.adapters[':'] = {
   }
 }
 
+rivets.binders['broadcast-click'] = function(el) {
+  $(el).on('click', function(e) {
+    hub.trigger('bodyClicked', e)
+  })
+}
+
 rivets.formatters.includeIndex = function(arr) {
   return arr.map(function(item, i) {
     item.index = i + 1
@@ -85,6 +91,7 @@ rivets.formatters.default = function(a, b) {
 rivets.formatters.preventDefault = function(fn) {
   return function(e) {
     e.preventDefault()
+    e.stopPropagation()
     fn.apply(this, arguments)
   }
 }

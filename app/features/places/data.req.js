@@ -6,6 +6,8 @@ var _ = require('lodash')
 
 var Place = Backbone.Model.extend({ })
 
+function updateSelected(
+
 var places = {
 
   find: function(filters) {
@@ -20,14 +22,8 @@ var places = {
     }
 
     $.get(url, function(places) {
-      var currentPlaces = places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
-      hub.trigger('placesLoaded', currentPlaces)
-
-      hub.on('placeSelected', function(place) {
-        currentPlaces.forEach(function(p) {
-          p.set('selected', p.cid == place.cid)
-        })
-      })
+      places.current = places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
+      hub.trigger('placesLoaded', places.current)
     })
   },
 
@@ -35,6 +31,13 @@ var places = {
 
   }
 }
+
+hub.on('placeSelected', function(place) {
+  if (!places.current) return
+  places.current.forEach(function(p) {
+    p.set('selected', p.cid == place.cid)
+  })
+})
 
 hub.on('findPlaces', places.find, places)
 hub.on('filterSelected', places.find, places)

@@ -1,5 +1,6 @@
 <div class="row">
   <div rv-hide="widget:selected" class="col-xs-12">
+    <button rv-on-click="widget.create">Create a layer</button>
     <ul>
       <li rv-on-click="widget.select" rv-each-layer="widget:layers">
         { layer.name }
@@ -11,6 +12,8 @@
       <a href="#" rv-on-click="widget.unselect | preventDefault"><< Back to list of layers</a>
       <br />
       <a href="#" rv-on-click="widget.save | preventDefault"> SAVE</a>
+      <br />
+      <a href="#" rv-on-click="widget.destroy | preventDefault"> DELETE</a>
       <form>
         <div class="form-group">
           <input placeholder="Name" class="form-control" type="text" rv-value="widget:selected:name">
@@ -23,6 +26,7 @@
     <div class="col-xs-6">
       <h4>Places</h4>
       <div rv-each-place="widget:selected:places" class="form-group">
+        <button rv-on-click="widget.removePlace"><i class="fa fa-trash-o"></i></button>
         <span>{ place:name }</span>
         <textarea rv-value="place:notes" class="form-control" placeholder="Notes"></textarea>
       </div>

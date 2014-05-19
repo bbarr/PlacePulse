@@ -1,5 +1,6 @@
 
 var asWidget = require('widget')
+var _ = require('lodash')
 
 module.exports = asWidget('places-list', function(hub) {
   var widget = this
@@ -23,7 +24,13 @@ module.exports = asWidget('places-list', function(hub) {
   }
 
   hub.on('placesLoaded', function(places) {
+    widget.set('places', [])
     widget.set('places', places)
+  })
+
+  hub.on('bodyClicked', function() {
+    var selected = _.find(widget.get('places'), function(p) { return p.get('selected') })
+    if (selected) selected.set('selected', false)
   })
 
   hub.trigger('findPlaces')

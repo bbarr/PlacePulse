@@ -23,14 +23,34 @@ module.exports = asWidget('layers-admin', function(hub) {
     widget.setLayer(layer)
   }
 
+  widget.create = function() {
+    var layer = { places: [] }
+    widget.setLayer(layer)
+  }
+
   widget.setLayer = function(layer) {
     var layerModel = model(layer)
     layerModel.set('places', layer.places.map(model))
     widget.set('selected', layerModel)
   }
 
+  widget.removePlace = function(_, _, binding) {
+    var place = binding.view.models.place
+    var layer = widget.get('selected')
+    var withoutPlace = layer.get('places').filter(function(p) {
+      return p.cid !== place.cid
+    })
+    layer.set('places', [])
+    layer.set('places', withoutPlace)
+  }
+
   widget.save = function() {
-    hub.trigger('saveLayer', widget.get('selected'))
+    hub.trigger('saveLayer', widget.get('selected'), widget.unselect.bind(widget))
+  }
+
+  widget.destroy = function() {
+    var layer = widget.get('selected')
+    hub.trigger('destroyLayer', layer, widget.unselect.bind(widget))
   }
 
   widget.unselect = function() {
@@ -48,6 +68,8 @@ module.exports = asWidget('layers-admin', function(hub) {
   hub.on('myLayersLoaded', function(layers) {
     widget.set('layers', layers)
   })
+
+  hub.on('layerCreated layerDestroyed', hub.trigger.bind(hub, 'loadMyLayers'))
 
   hub.trigger('loadMyLayers')
 })

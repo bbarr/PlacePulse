@@ -10,12 +10,10 @@ module.exports = asWidget('map', function(hub) {
   var widget = this
 
   rivets.binders.map = function(el) {
-    setTimeout(function() {
-      widget.set('map', L.mapbox.map('map', 'bbarr.map-tvg4iseh', {
-        center: [ 41.7898313, -69.9897397 ],
-        zoom: 12
-      }))
-    }, 0)
+    widget.set('map', L.mapbox.map('map', 'bbarr.map-tvg4iseh', {
+      center: [ 41.7898313, -69.9897397 ],
+      zoom: 12
+    }))
   }
 
   function buildMarker(place) {
@@ -60,6 +58,10 @@ module.exports = asWidget('map', function(hub) {
     widget
       .template('/boo.html')
       .assets([ 'https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' ], function() {
+
+        // have to show map here before bindings so mapbox works right
+        widget.set('visible', true)
+
         widget.start()
       })
 
