@@ -4,7 +4,7 @@ var hub = require('widget').hub
 
 var filters = {
   fetch: function() {
-    $.get('http://localhost:3000/filters', function(filters) {
+    $.get(hub.API_ROOT + '/filters', function(filters) {
       hub.trigger('filtersLoaded', filters)
     })
   }

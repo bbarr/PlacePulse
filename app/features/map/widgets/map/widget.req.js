@@ -12,7 +12,9 @@ module.exports = asWidget('map', function(hub) {
   rivets.binders.map = function(el) {
     widget.set('map', L.mapbox.map('map', 'bbarr.map-tvg4iseh', {
       center: [ 41.7898313, -69.9897397 ],
-      zoom: 12
+      zoom: 16,
+      minZoom: 15,
+      maxZoom: 17
     }))
   }
 

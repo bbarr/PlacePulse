@@ -12,6 +12,8 @@ $.ajaxSetup({
   }
 })
 
+hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
+
 // require all widgets
 
 var VM = Backbone.Model.extend({

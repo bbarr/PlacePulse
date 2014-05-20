@@ -6,13 +6,11 @@ var _ = require('lodash')
 
 var Place = Backbone.Model.extend({ })
 
-function updateSelected(
-
 var places = {
 
   find: function(filters) {
 
-    var url = 'http://localhost:3000/places?q[region]=orleans.ma'
+    var url = hub.API_ROOT + '/places?q[region]=orleans.ma'
     if (filters) {
       if (filters.category) {
         url += '&q[category]=' + filters.category.name

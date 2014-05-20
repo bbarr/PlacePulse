@@ -5,13 +5,13 @@ var hub = require('widget').hub
 var layers = {
 
   fetch: function() {
-    $.get('http://localhost:3000/lists', function(layers) {
+    $.get(hub.API_ROOT + '/lists', function(layers) {
       hub.trigger('layersLoaded', layers)
     })
   },
 
   fetchMine: function() {
-    $.get('http://localhost:3000/lists/mine', function(layers) {
+    $.get(hub.API_ROOT + '/lists/mine', function(layers) {
       hub.trigger('myLayersLoaded', layers)
     })
   },
@@ -21,7 +21,7 @@ var layers = {
     raw.places = raw.places.map(function(p) { return p.attributes })
     var isNew = !raw._id
     $.ajax({
-      url: 'http://localhost:3000/lists' + (isNew ? '' : ('/' + raw._id)),
+      url: hub.API_ROOT + '/lists' + (isNew ? '' : ('/' + raw._id)),
       type: isNew ? 'POST' : 'PUT',
       contentType: 'application/json',
       data: JSON.stringify(raw), 
@@ -34,7 +34,7 @@ var layers = {
 
   destroy: function(layer, cb) {
     $.ajax({
-      url: 'http://localhost:3000/lists/' + layer.get('_id'),
+      url: hub.API_ROOT + '/lists/' + layer.get('_id'),
       type: 'DELETE',
       success: function() {
         hub.trigger('layerDestroyed')

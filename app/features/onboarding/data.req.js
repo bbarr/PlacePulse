@@ -2,7 +2,7 @@
 var $ = require('jquery')
 var hub = require('widget').hub
 
-var API_ROOT = 'http://localhost:3000'
+var API_ROOT = hub.API_ROOT
 
 function armUser(user) {
   hub.trigger('currentUser', user)

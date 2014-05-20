@@ -15,6 +15,7 @@ module.exports = asWidget('menu', function(hub) {
   widget.showProfile = setPane('profile')
   widget.showPlaces = setPane('places')
   widget.showLayers = setPane('layers')
+  widget.showAdmin = setPane('admin')
 
   widget.on('installed', function() {
     widget.start().hide()
