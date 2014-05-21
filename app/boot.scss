@@ -124,6 +124,7 @@ li.list-place {
   }
 }
 
+
 .leaflet-marker-icon {
   border-radius: 32px;
   font-size: 16px;
@@ -135,4 +136,14 @@ li.list-place {
   border: 1px solid #000;
   text-align: center;
   line-height: 28px !important;
+}
+
+.food {
+  .leaflet-marker-icon {
+    background: red;
+  }
+}
+
+.food {
+  background: red;
 }

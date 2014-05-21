@@ -67,6 +67,11 @@ module.exports = asWidget('map', function(hub) {
         widget.start()
       })
 
+  hub.on('filterSelected', function(filters) {
+    var filter = filters.category||filters.list
+    widget.set('className', filter.className)
+  })
+
     hub.on('placesLoaded', function(places) {
       widget.get('markerLayer').clearLayers()
       widget.set('places', places)

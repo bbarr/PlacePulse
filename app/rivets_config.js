@@ -14,6 +14,10 @@ rivets.adapters['.'] = {
   }
 }
 
+rivets.binders['as-class'] = function(el, val) {
+  $(el).addClass(val)
+}
+
 rivets.adapters[':'] = {
   subscribe: function(obj, keypath, callback) {
     obj.on('change:' + keypath, callback)

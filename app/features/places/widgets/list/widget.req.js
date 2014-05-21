@@ -28,6 +28,13 @@ module.exports = asWidget('places-list', function(hub) {
     widget.set('places', places)
   })
 
+  hub.on('filterSelected', function(filters) {
+    var filter = filters.category||filters.list
+    widget.set('title', filter.name)
+    widget.set('className', filter.className)
+  })
+
+
   hub.on('placeSelected', function(place) {
     widget.get('places').forEach(function(p) { p.set('selected', false) })
     place.set('selected', true)
