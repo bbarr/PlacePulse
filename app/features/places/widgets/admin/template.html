@@ -1,35 +1,32 @@
+<p>Can't find a place you are looking for? Give us whatever details you can, and we will work to add it into the system!</p>
 <div class="row">
-  <div rv-hide="widget:selected" class="col-xs-12">
-    <h4>Places</h4>
-    <ul>
-      <li rv-each-place="widget:places">{ place:name }</li>
-    </ul>
+  <div rv-show="widget:saved">
+    Thanks for submitting a new place! We will review the information and then add it to our place library soon.
   </div>
-  <div rv-show="widget:selected">
+  <div rv-hide="widget:saved">
     <div class="col-xs-6">
-      <form>
+      <form rv-on-submit="widget.save | preventDefault">
+        <button type="submit">Save</button>
         <div class="form-group">
-          <input placeholder="Name" class="form-control input-lg" type="text" rv-value="widget.place:name">
+          <input placeholder="Name" class="form-control input-lg" type="text" rv-value="widget:place:name">
         </div>
         <div class="form-group">
-          <input placeholder="Street Address" class="form-control input-lg" type="text" rv-value="widget.place:address">
+          <input placeholder="Street Address" class="form-control input-lg" type="text" rv-value="widget:place:address">
         </div>
         <div class="form-group">
-          <select placeholder="Category" class="form-control input-lg" rv-value="widget.place:category">
+          <select placeholder="Category" class="form-control input-lg" rv-value="widget:place:category">
             <option selected disabled value="">Category</option>
-            <option value="1">Category 1</option>
-            <option value="2">Category 2</option>
-            <option value="3">Category 3</option>
+            <option rv-each-category="widget:categories">{ category.name }</option>
           </select>
         </div>
       </form>
     </div>
     <div class="col-xs-6">
       <div class="form-group">
-        <textarea class="form-control input-lg" placeholder="About" rv-value="widget.place:about"></textarea>
+        <textarea class="form-control input-lg" placeholder="About" rv-value="widget:place:about"></textarea>
       </div>
       <div class="form-group">
-        <textarea class="form-control input-lg" placeholder="History" rv-value="widget.place:history"></textarea>
+        <textarea class="form-control input-lg" placeholder="History" rv-value="widget:place:history"></textarea>
       </div>
     </div>
   </div>

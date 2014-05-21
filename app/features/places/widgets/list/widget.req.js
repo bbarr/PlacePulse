@@ -28,6 +28,11 @@ module.exports = asWidget('places-list', function(hub) {
     widget.set('places', places)
   })
 
+  hub.on('placeSelected', function(place) {
+    widget.get('places').forEach(function(p) { p.set('selected', false) })
+    place.set('selected', true)
+  })
+
   hub.on('bodyClicked', function() {
     var selected = _.find(widget.get('places'), function(p) { return p.get('selected') })
     if (selected) selected.set('selected', false)

@@ -5803,6 +5803,9 @@ button.close {
 body {
   padding-top: 56px; }
 
+.modal {
+  background: rgba(255, 255, 255, 0.5); }
+
 .navbar-brand {
   font-size: 24px; }
 

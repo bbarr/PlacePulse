@@ -8,6 +8,13 @@ var Place = Backbone.Model.extend({ })
 
 var places = {
 
+  current: [],
+
+  save: function(place) {
+    debugger
+    hub.trigger('placeSaved')
+  },
+
   find: function(filters) {
 
     var url = hub.API_ROOT + '/places?q[region]=orleans.ma'
@@ -17,8 +24,26 @@ var places = {
       } else if (filters.list) {
         url += '&list=' + filters.list.name
       }
+    } else return
+
+    url += '&perPage=50'
+    url += '&page=1'
+
+    var _places = []
+    function fetch(i) {
+      $.get(url.replace(/page=\d+/, 'page=' + i), function(ps) {
+        _places = _places.concat(ps)
+        console.log(ps.length)
+        if (ps.length === 50) fetch(i + 1)
+        else {
+          places.current = _places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
+          hub.trigger('placesLoaded', places.current)
+        }
+      })
     }
 
+    return fetch(1)
+    
     $.get(url, function(places) {
       places.current = places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
       hub.trigger('placesLoaded', places.current)
@@ -39,3 +64,4 @@ hub.on('placeSelected', function(place) {
 
 hub.on('findPlaces', places.find, places)
 hub.on('filterSelected', places.find, places)
+hub.on('savePlace', places.save, places)

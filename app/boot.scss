@@ -12,6 +12,10 @@ body {
   padding-top: $header-height;
 }
 
+.modal {
+  background: rgba(255, 255, 255, .5)
+}
+
 .navbar-brand {
   font-size: 24px;
 }
