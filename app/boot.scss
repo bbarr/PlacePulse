@@ -8,6 +8,9 @@ $white: #fff;
 $cornflower-blue: #6495ED;
 $black: #000;
 
+$food: #f37130;
+
+
 body {
   padding-top: $header-height;
 }
@@ -61,6 +64,7 @@ body {
   bottom: 0;
   overflow-y: auto;
   width: $sidebar-width;
+  i {padding: 10px 10px 0px 10px;}
 }
 
 #map {
@@ -138,12 +142,20 @@ li.list-place {
   line-height: 28px !important;
 }
 
-.food {
-  .leaflet-marker-icon {
-    background: red;
-  }
+.index {
+
 }
 
 .food {
-  background: red;
+  background: $food;
+  .index {color:$food;}
+  .leaflet-marker-icon {background:$cornflower-blue;}
 }
+
+
+.services {
+  background: $food;
+  .index {color:$food;}
+  .leaflet-marker-icon {background:$cornflower-blue;}
+}
+

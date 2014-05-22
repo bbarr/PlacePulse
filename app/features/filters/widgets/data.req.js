@@ -21,7 +21,13 @@ function decorate(cats, decs) {
 var categoryDecorations = {
   food: {
   	className: 'food',
-  	icon: 'fa-fork'
+  	icon: 'fa-cutlery',
+  	icon_img: 'https://foursquare.com/img/categories_v2/shops/food_gourmet_64.png',
+  }
+  services: {
+  	className: 'services',
+  	icon: 'fa-wrench',
+  	icon_img: 'https://foursquare.com/img/categories_v2/shops/hardware_64.png',
   }
 }
 

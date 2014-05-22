@@ -32,6 +32,8 @@ module.exports = asWidget('places-list', function(hub) {
     var filter = filters.category||filters.list
     widget.set('title', filter.name)
     widget.set('className', filter.className)
+    widget.set('icon', filter.icon)
+    widget.set('icon_img', filter.icon_img)
   })
 
 

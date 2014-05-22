@@ -5844,6 +5844,8 @@ body {
   bottom: 0;
   overflow-y: auto;
   width: 300px; }
+  #places-list i {
+    padding: 10px 10px 0px 10px; }
 
 #map {
   height: 100%;
@@ -5901,8 +5903,17 @@ li.list-place {
   text-align: center;
   line-height: 28px !important; }
 
-.food .leaflet-marker-icon {
-  background: red; }
 
 .food {
-  background: red; }
+  background: #f37130; }
+  .food .index {
+    color: #f37130; }
+  .food .leaflet-marker-icon {
+    background: #6495ED; }
+
+.services {
+  background: #f37130; }
+  .services .index {
+    color: #f37130; }
+  .services .leaflet-marker-icon {
+    background: #6495ED; }
