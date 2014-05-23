@@ -18,9 +18,15 @@ module.exports = asWidget('layers-admin', function(hub) {
 
   function model(obj) { return new Backbone.Model(obj) }
 
-  widget.select = function(_, _, binding) {
+  widget.select = function(e, o, binding) {
     var layer = binding.view.models.layer
-    widget.setLayer(layer)
+    var layerModel = widget.setLayer(layer)
+    _.find(widget.get('icons'), function(i) {
+      if (i.get('className') == layerModel.get('icon')) {
+        i.set('selected', true)
+        return true
+      }
+    })
   }
 
   widget.create = function() {
@@ -32,6 +38,7 @@ module.exports = asWidget('layers-admin', function(hub) {
     var layerModel = model(layer)
     layerModel.set('places', layer.places.map(model))
     widget.set('selected', layerModel)
+    return layerModel
   }
 
   widget.removePlace = function(_, _, binding) {
@@ -42,6 +49,18 @@ module.exports = asWidget('layers-admin', function(hub) {
     })
     layer.set('places', [])
     layer.set('places', withoutPlace)
+  }
+
+  widget.set('icons', [
+    { className: 'fa-cutlery' },
+    { className: 'fa-star' }
+  ].map(model))
+
+  widget.selectIcon = function(_, _, binding) {
+    var icon = binding.view.models.icon
+    widget.get('selected').set('icon', icon.get('className'))
+    widget.get('icons').forEach(function(i) { i.set('selected', false) })
+    icon.set('selected', true)
   }
 
   widget.save = function() {

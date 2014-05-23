@@ -11,7 +11,6 @@ var places = {
   current: [],
 
   save: function(place) {
-    debugger
     hub.trigger('placeSaved')
   },
 

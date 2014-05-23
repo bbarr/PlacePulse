@@ -1,6 +1,8 @@
 var rivets = require('rivets')
 var _ = require('lodash')
 var $ = require('jquery')
+window.jQuery = $
+require('./bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker')
 
 rivets.adapters['.'] = {
   subscribe: function(obj, keypath, callback) { },

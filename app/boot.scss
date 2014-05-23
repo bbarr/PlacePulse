@@ -1,5 +1,6 @@
 @import './bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import './bower_components/font-awesome/scss/font-awesome';
+@import './bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min';
 
 $header-height: 56px;
 $sidebar-width: 300px;
@@ -152,6 +153,7 @@ li.list-place {
   .leaflet-marker-icon {background:$cornflower-blue;}
 }
 
+<<<<<<< Updated upstream
 
 .services {
   background: $food;
@@ -159,3 +161,16 @@ li.list-place {
   .leaflet-marker-icon {background:$cornflower-blue;}
 }
 
+=======
+.select-icons {
+  i {
+    border: 1px solid #000;
+    padding: 4px;
+    margin: 2px;
+    &.selected {
+      background: yellow;
+      border: 1px solid #ccc;
+    }
+  }
+}
+>>>>>>> Stashed changes

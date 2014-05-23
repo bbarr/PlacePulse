@@ -26,6 +26,7 @@
     "widget": "../../widget",
     "bootstrap-sass": "~3.0.2",
     "font-awesome": "~4.0.3",
-    "bootstrap-sass-official": "~3.1.1+2"
+    "bootstrap-sass-official": "~3.1.1+2",
+    "mjolnic-bootstrap-colorpicker": "~1.0.0"
   }
 }
