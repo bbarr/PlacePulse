@@ -23,7 +23,7 @@ var categoryDecorations = {
   	className: 'food',
   	icon: 'fa-cutlery',
   	icon_img: 'https://foursquare.com/img/categories_v2/shops/food_gourmet_64.png',
-  }
+  },
   services: {
   	className: 'services',
   	icon: 'fa-wrench',

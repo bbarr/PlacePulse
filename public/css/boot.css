@@ -6076,7 +6076,6 @@ li.list-place {
 
 
 .food {
-<<<<<<< Updated upstream
   background: #f37130; }
   .food .index {
     color: #f37130; }
@@ -6089,8 +6088,6 @@ li.list-place {
     color: #f37130; }
   .services .leaflet-marker-icon {
     background: #6495ED; }
-=======
-  background: red; }
 
 .select-icons i {
   border: 1px solid #000;
@@ -6099,4 +6096,3 @@ li.list-place {
   .select-icons i.selected {
     background: yellow;
     border: 1px solid #ccc; }
->>>>>>> Stashed changes

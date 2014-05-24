@@ -16,8 +16,18 @@ rivets.adapters['.'] = {
   }
 }
 
+rivets.binders['*-as-class'] = function(el, val) {
+  var key = this.args[0] || ''
+  var current = el.getAttribute('data-' + key) || ''
+  $(el).removeClass(current).addClass(val)
+  el.setAttribute('data-' + key, val)
+}
+
 rivets.binders['as-class'] = function(el, val) {
-  $(el).addClass(val)
+  var key = 'anon'
+  var current = el.getAttribute('data-' + key) || ''
+  $(el).removeClass(current).addClass(val)
+  el.setAttribute('data-' + key, val)
 }
 
 rivets.adapters[':'] = {
