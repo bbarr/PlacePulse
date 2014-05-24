@@ -112,7 +112,7 @@ li.list-place {
   }
   &:hover .addToList {
     visibility: visible;
-  } 
+  }
   &:hover, &.active {
     background:#DFF2FA;
   }
@@ -173,6 +173,9 @@ li.list-place {
 
 #menu {
   .content {
+    .modal-footer {
+      padding: 15px 15px 0 15px;
+    }
   }
 }
 

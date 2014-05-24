@@ -6097,6 +6097,8 @@ li.list-place {
     background: yellow;
     border: 1px solid #ccc; }
 
+#menu .content .modal-footer {
+  padding: 15px 15px 0 15px; }
 
 .modal-header {
   border: none;
