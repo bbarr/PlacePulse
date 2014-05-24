@@ -7,8 +7,12 @@
       </div>
       <div class="modal-body row">
         <ul class="nav nav-pills nav-stacked col-xs-3">
-          <li rv-class-active="widget:pane | eql layers"><a rv-on-click="widget.showLayers | preventDefault" href="#">Custom Lists</a></li>
-          <li rv-class-active="widget:pane | eql profile"><a rv-on-click="widget.showProfile | preventDefault" href="#">Profile</a></li>
+          <li rv-class-active="widget:pane | eql tours">
+            <a rv-on-click="widget.showLayers | preventDefault" href="#">Your Tours</a>
+          </li>
+          <li rv-class-active="widget:pane | eql profile">
+            <a rv-on-click="widget.showProfile | preventDefault" href="#">Profile</a>
+          </li>
           <!--
           <li rv-class-active="widget:pane | eql places"><a rv-on-click="widget.showPlaces | preventDefault" href="#">Add a Place</a></li>
           <li rv-class-active="widget:pane | eql admin"><a rv-on-click="widget.showAdmin | preventDefault" href="#">Admin</a></li>
@@ -20,7 +24,7 @@
           <div rv-widget data-widget-name="admin-admin"></div>
           <div rv-widget data-widget-name="places-admin"></div>
           -->
-          <div rv-widget data-widget-name="layers-admin"></div>
+          <div rv-widget data-widget-name="tours-admin"></div>
         </div>
       </div>
     </div>

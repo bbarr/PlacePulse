@@ -1,0 +1,6 @@
+<i class="fa fa-caret-right arrow"></i>
+<strong>Choose a tour:</strong>
+<ul>
+  <li rv-each-tour="widget:tours" rv-on-click="widget.pick | preventDefault">{ tour.name }</li>
+</ul>
+<button>Create a new tour</button>

@@ -5,19 +5,19 @@ var $ = require('jquery')
 module.exports = asWidget('list-picker', function(hub) {
   var widget = this
 
-  widget.template('/features/layers/widgets/picker/template.html')
+  widget.template('/features/tours/widgets/picker/template.html')
   widget.on('installed', function() {
     widget.start().hide()
-    hub.trigger('loadMyLayers')
+    hub.trigger('loadMyTours')
   })
 
   widget.pick = function(_, _, binding) {
-    var layer = binding.view.models.layer
-    hub.trigger('addToLayer', layer, place)
+    var tour = binding.view.models.tour
+    hub.trigger('addToTour', tour, place)
   }
 
-  hub.on('myLayersLoaded', function(layers) {
-    widget.set('layers', layers)
+  hub.on('myToursLoaded', function(tours) {
+    widget.set('tours', tours)
   })
 
   hub.on('bodyClicked', function() {

@@ -6,6 +6,8 @@ var hub = require('widget').hub
 var $ = require('jquery')
 window.hub = hub
 
+hub.data = new Backbone.Model
+
 $.ajaxSetup({
   xhrFields: {
     withCredentials: true

@@ -1,1 +1,38 @@
-tours
+<div class="row">
+  <div rv-hide="widget:selected" class="col-xs-12">
+    <button rv-on-click="widget.create">Create a tour</button>
+    <ul>
+      <li rv-on-click="widget.select" rv-each-tour="widget:tours">
+        { tour.name }
+      </li>
+    </ul>
+  </div>
+  <div rv-show="widget:selected">
+    <div class="col-xs-6">
+      <a href="#" rv-on-click="widget.unselect | preventDefault"><< Back to list of tours</a>
+      <br />
+      <a href="#" rv-on-click="widget.save | preventDefault"> SAVE</a>
+      <br />
+      <a href="#" rv-on-click="widget.destroy | preventDefault"> DELETE</a>
+      <form>
+        <div class="form-group">
+          <input placeholder="Name" class="form-control" type="text" rv-value="widget:selected:name">
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Description" class="form-control" rv-value="widget:selected:description"></textarea>
+        </div>
+        <div class="form-group select-icons">
+          <i rv-each-icon="widget:icons" rv-on-click="widget.selectIcon | preventDefault" rv-as-class="icon:className" class="fa" rv-class-selected="icon:selected"></i>
+        </div>
+      </form>
+    </div>
+    <div class="col-xs-6">
+      <h4>Places</h4>
+      <div rv-each-place="widget:selected:places" class="form-group">
+        <button rv-on-click="widget.removePlace"><i class="fa fa-trash-o"></i></button>
+        <span>{ place:name }</span>
+        <textarea rv-value="place:notes" class="form-control" placeholder="Notes"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
