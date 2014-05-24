@@ -1,24 +1,26 @@
-<div class="modal show">
+<div class="modal show" id="menu">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
         <h4 class="modal-title">Menu</h4>
       </div>
-      <div class="modal-body row">
-        <ul class="nav nav-pills nav-stacked col-xs-3">
+      <div class="modal-body">
+        <ul class="nav nav-tabs">
           <li rv-class-active="widget:pane | eql tours">
-            <a rv-on-click="widget.showLayers | preventDefault" href="#">Your Tours</a>
+            <a rv-on-click="widget.showTours | preventDefault" href="#">Your Tours</a>
+          </li>
+          <li rv-class-active="widget:pane | eql places">
+            <a rv-on-click="widget.showPlaces | preventDefault" href="#">Suggest a Place</a>
           </li>
           <li rv-class-active="widget:pane | eql profile">
-            <a rv-on-click="widget.showProfile | preventDefault" href="#">Profile</a>
+            <a rv-on-click="widget.showProfile | preventDefault" href="#">Edit Profile</a>
           </li>
           <!--
-          <li rv-class-active="widget:pane | eql places"><a rv-on-click="widget.showPlaces | preventDefault" href="#">Add a Place</a></li>
           <li rv-class-active="widget:pane | eql admin"><a rv-on-click="widget.showAdmin | preventDefault" href="#">Admin</a></li>
           -->
         </ul>
-        <div class="content col-xs-9">
+        <div class="content">
           <div rv-widget data-widget-name="profile-admin"></div>
           <!--
           <div rv-widget data-widget-name="admin-admin"></div>

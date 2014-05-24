@@ -6096,3 +6096,6 @@ li.list-place {
   .select-icons i.selected {
     background: yellow;
     border: 1px solid #ccc; }
+
+#menu .content {
+  margin-top: 20px; }

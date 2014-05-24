@@ -14,7 +14,7 @@ module.exports = asWidget('menu', function(hub) {
   var setPane = function(name) { return widget.set.bind(widget, 'pane', name) }
   widget.showProfile = setPane('profile')
   widget.showPlaces = setPane('places')
-  widget.showLayers = setPane('layers')
+  widget.showTours = setPane('tours')
   widget.showAdmin = setPane('admin')
 
   widget.on('installed', function() {
@@ -23,6 +23,6 @@ module.exports = asWidget('menu', function(hub) {
 
   hub.on('showMenu', function() {
     widget.show()
-    widget.showLayers()
+    widget.showTours()
   })
 })
