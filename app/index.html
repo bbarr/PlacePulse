@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/boot.css"></link>
 </head>
 <body>
 
   <div id="app">
 
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <a class="navbar-brand">Town <strong><i>Pulse</i></strong></a>
-        <ul rv-hide=":currentUser" class="nav navbar-nav">
-          <li><a href="#" rv-on-click="showOnboarding | preventDefault">Sign up/Log in</a></li>
-          <li><a href="#" rv-on-click="showFilters | preventDefault">Filters</a></li>
-        </ul>
-        <ul rv-show=":currentUser" class="nav navbar-nav">
-          <li><a href="#" rv-on-click="logout | preventDefault">Log out</a></li>
-          <li><a href="#" rv-on-click="showMenu | preventDefault">Menu</a></li>
-        </ul>
-      </div>
+    <div class="main-nav">
+      <a class="navbar-brand">Orleans<strong><em>Pulse</em></strong></a>
+      <nav class="blocky-nav">
+        <a href="#" rv-class-active=":showingFilters" rv-on-click="showFilters | preventDefault">Filters</a>
+        <span rv-hide=":currentUser">
+          <a href="#" rv-on-click="showOnboarding | preventDefault">Sign up/Log in</a>
+        </span>
+        <span rv-show=":currentUser">
+          <a href="#" rv-class-active=":showingMenu" rv-on-click="showMenu | preventDefault">Menu</a>
+          <a href="#" rv-on-click="logout | preventDefault">Log out</a>
+        </span>
+      </nav>
     </div>
 
 
@@ -27,7 +28,7 @@
     <div id="list-picker" rv-widget data-widget-name="list-picker"></div>
 
     <div rv-widget data-widget-name="filters"></div>
-    <div rv-widget data-widget-name="onboarding"></div>
+    <div id="onboarding" rv-widget data-widget-name="onboarding"></div>
     <div rv-widget data-widget-name="menu"></div>
     <div rv-widget data-widget-name="welcome"></div>
   </div>

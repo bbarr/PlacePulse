@@ -1,14 +1,20 @@
 <div rv-cn-as-class="widget:className">
-<a href="#" rv-on-click="widget.showFilters | preventDefault">Filters</a>
-	<h3><i class="fa" rv-as-class="widget:icon"></i>{ widget:title }<img rv-src="widget:icon_img"> </h3>
+  <div class="list-header">
+    <h3>
+      <i class="fa" rv-as-class="widget:icon"></i>
+      { widget:title }
+    </h3>
+    <p>
+    This is a description of stuff. Look how amazing it all looks! Maybe Brendan is awesome.
+    </p>
+  </div>
 	<ul>
 	  <li rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select | preventDefault">
-	  	<p class="index">{ place:index }</p>
 	    <div class="details">
-	      <h4>{ place:name }</h4>
+	      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
+        <h4><span>{ place:index }.</span> { place:name }</h4>
 	      <p>{ place:phone }</p>
 	      <p>{ place:location.street }</p>
-	      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
 	    </div>
 	  </li>
 	</ul>

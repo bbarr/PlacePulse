@@ -1,27 +1,23 @@
 <div rv-class-active="widget:active" id="filters">
-  <div class="filters-header">
-    <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
-    <a href="#" rv-on-click="widget.showTours | preventDefault">Tours</a>
-    <a href="#" rv-on-click="widget.showCategories | preventDefault">Categories</a>
-  </div>
+  <nav class="filters-header blocky-nav">
+    <a href="#" rv-class-active="widget:list | eql tours" rv-on-click="widget.showTours | preventDefault">Tours</a>
+    <a href="#" rv-class-active="widget:list | eql categories" rv-on-click="widget.showCategories | preventDefault">Categories</a>
+  </nav>
   <div rv-show="widget:list | eql categories" class="filters-body">
-    <h3>Categories</h3>
-    <div>
-      <ul class="row filter-list">
-        <li class="col-xs-6" rv-on-click="widget.selectCategory" rv-each-category="widget:categories">
-        { category.name }
-        </li>
-      </ul>
-    </div>
+    <ul class="filter-list">
+      <li rv-cn-as-class="category.className" rv-on-click="widget.selectCategory" rv-each-category="widget:categories">
+      <div class="listing">
+        <i class="fa" rv-as-class="category.icon"></i>
+        <h3>{ category.name }</h3>
+      </div>
+      </li>
+    </ul>
   </div>
   <div rv-show="widget:list | eql tours" class="filters-body">
-    <h3>Tours</h3>
-    <div>
-      <ul class="row filter-list">
-        <li class="col-xs-6" rv-on-click="widget.selectTour" rv-each-tour="widget:tours">
-        { tour.name }
-        </li>
-      </ul>
-    </div>
+    <ul class="row filter-list">
+      <li class="col-xs-6" rv-on-click="widget.selectTour" rv-each-tour="widget:tours">
+      { tour.name }
+      </li>
+    </ul>
   </div>
 </div>

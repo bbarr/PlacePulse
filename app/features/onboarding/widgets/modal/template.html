@@ -1,5 +1,5 @@
 <div class="modal show">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
@@ -10,11 +10,11 @@
           <div rv-hide="widget:forLogin">
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-6">
-                  <input placeholder="First Name" type="text" class="form-control input-lg" rv-value="widget.user:firstName" />
+                <div class="col-xs-6" style="padding-right: 5px;">
+                  <input placeholder="First" type="text" class="form-control input-lg" rv-value="widget.user:firstName" />
                 </div>
-                <div class="col-xs-6">
-                  <input placeholder="Last Name" type="text" class="form-control input-lg" rv-value="widget.user:lastName" />
+                <div class="col-xs-6" style="padding-left: 5px;">
+                  <input placeholder="Last" type="text" class="form-control input-lg" rv-value="widget.user:lastName" />
                 </div>
               </div>
             </div>
@@ -23,7 +23,7 @@
             <input placeholder="Email" type="text" class="form-control input-lg" rv-value="widget.user:email" />
           </div>
           <div class="form-group">
-            <input placeholder="Password" type="text" class="form-control input-lg" rv-value="widget.user:password" />
+            <input placeholder="Password" type="password" class="form-control input-lg" rv-value="widget.user:password" />
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary">{ widget:button }</button>
@@ -32,7 +32,7 @@
       </div>
       <div class="modal-footer">
         <div class="row">
-          <button rv-on-click="widget.swap | preventDefault" type="button" class="btn btn-info col-xs-8 col-xs-offset-2">{ widget:alternative }</button>
+          <a href="#" rv-on-click="widget.swap | preventDefault" type="button">{ widget:alternative }</a>
         </div>
       </div>
     </div>

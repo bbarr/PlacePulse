@@ -14,13 +14,13 @@ module.exports = asWidget('onboarding', function(hub) {
 
   widget.on('change:forLogin', function() {
     if (widget.get('forLogin')) {
-      widget.set('headline', 'Log in')
+      widget.set('headline', 'Log in to your account')
       widget.set('button', 'Login')
-      widget.set('alternative', 'I need to sign up')
+      widget.set('alternative', "Don't have an account yet? Sign up!")
     } else {
-      widget.set('headline', 'Sign up')
+      widget.set('headline', 'Sign up to get involved')
       widget.set('button', 'Sign up')
-      widget.set('alternative', 'I need to log in')
+      widget.set('alternative', 'Already signed up? Log in!')
     }
   }, widget)
 

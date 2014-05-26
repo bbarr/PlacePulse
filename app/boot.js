@@ -15,7 +15,8 @@ $.ajaxSetup({
 })
 
 //hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
-hub.API_ROOT = 'http://localhost:3000'
+//hub.API_ROOT = 'http://localhost:3000'
+hub.API_ROOT = 'http://192.168.1.102:3000'
 
 // require all widgets
 
@@ -31,7 +32,7 @@ var VM = Backbone.Model.extend({
   },
 
   showMenu: function() {
-    hub.trigger('showMenu')
+    this.get('showingMenu') ? hub.trigger('hideMenu') : hub.trigger('showMenu')
   },
 
   logout: function() {
@@ -39,11 +40,18 @@ var VM = Backbone.Model.extend({
   },
 
   showFilters: function() {
-    hub.trigger('showFilters')
+    this.get('showingFilters') ? hub.trigger('hideFilters') : hub.trigger('showFilters')
   }
 })
 
-rivets.bind(document.getElementById('app'), new VM)
+var vm = new VM
+
+hub.on('filtersShown', function() { vm.set('showingFilters', true) })
+hub.on('filtersHidden', function() { vm.set('showingFilters', false) })
+hub.on('menuShown', function() { vm.set('showingMenu', true) })
+hub.on('menuHidden', function() { vm.set('showingMenu', false) })
+
+rivets.bind(document.getElementById('app'), vm)
 
 hub.trigger('showWelcome')
 

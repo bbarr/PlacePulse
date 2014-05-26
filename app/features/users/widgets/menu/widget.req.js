@@ -21,7 +21,16 @@ module.exports = asWidget('menu', function(hub) {
     widget.start().hide()
   })
 
+  widget.on('change:visible', function() {
+    hub.trigger(widget.get('visible') ? 'menuShown' : 'menuHidden')
+  })
+
   hub.on('showMenu', function() {
+    widget.show()
+    widget.showTours()
+  })
+
+  hub.on('hideMenu', function() {
     widget.show()
     widget.showTours()
   })

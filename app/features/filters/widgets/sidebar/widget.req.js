@@ -20,9 +20,8 @@ module.exports = asWidget('filters', function(hub) {
     hub.trigger('filterSelected', { tour: tour })
   }
 
-  hub.on('showFilters', function() {
-    widget.show()
-  })
+  hub.on('showFilters', function() { widget.show() })
+  hub.on('hideFilters', function() { widget.hide() })
 
   widget.show = function() {
     widget.set('visible', true)
@@ -40,6 +39,11 @@ module.exports = asWidget('filters', function(hub) {
   widget.showCategories = function() {
     widget.set('list', 'categories')
   }
+
+  widget.on('change:active', function() {
+    console.log('filters visible or not')
+    hub.trigger(widget.get('active') ? 'filtersShown' : 'filtersHidden')
+  })
 
   hub.on('filtersLoaded', function(filters) {
     widget.set('categories', filters.categories)
