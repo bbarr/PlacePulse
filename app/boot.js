@@ -16,7 +16,7 @@ $.ajaxSetup({
 
 //hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
 //hub.API_ROOT = 'http://localhost:3000'
-hub.API_ROOT = 'http://192.168.1.102:3000'
+hub.API_ROOT = 'http://192.168.1.5:3000'
 
 // require all widgets
 

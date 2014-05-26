@@ -62,6 +62,10 @@ rivets.binders.modal = function(el) {
   $(el).modal()
 }
 
+rivets.formatters.first = function(arr) {
+  return _.first(arr)
+}
+
 rivets.formatters.last = function(arr) {
   return _.last(arr)
 }

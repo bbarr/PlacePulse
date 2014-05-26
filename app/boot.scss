@@ -166,6 +166,7 @@ input, textarea {
   overflow-y: auto;
   width: $sidebar-width;
   background: $concrete;
+  border-left: 1px solid $silver;
   i { 
     padding: 10px 10px 0px 10px;
   }

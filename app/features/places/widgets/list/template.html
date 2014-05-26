@@ -13,8 +13,8 @@
 	    <div class="details">
 	      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
         <h4><span>{ place:index }.</span> { place:name }</h4>
-	      <p>{ place:phone }</p>
-	      <p>{ place:location.street }</p>
+        <p>{ place:categoryLabels | first | last }</p>
+	      <p>{ place:phone } - { place:location.street }</p>
 	    </div>
 	  </li>
 	</ul>

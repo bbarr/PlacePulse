@@ -6656,7 +6656,8 @@ input, textarea {
   bottom: 0;
   overflow-y: auto;
   width: 300px;
-  background: #f3f3f3; }
+  background: #f3f3f3;
+  border-left: 1px solid #ccc; }
   #places-list i {
     padding: 10px 10px 0px 10px; }
   #places-list .list-header {
