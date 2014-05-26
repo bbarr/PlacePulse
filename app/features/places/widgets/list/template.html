@@ -1,4 +1,5 @@
 <div rv-cn-as-class="widget:className">
+<a href="#" rv-on-click="widget.showFilters | preventDefault">Filters</a>
 	<h3><i class="fa" rv-as-class="widget:icon"></i>{ widget:title }<img rv-src="widget:icon_img"> </h3>
 	<ul>
 	  <li rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select | preventDefault">

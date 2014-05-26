@@ -4,9 +4,10 @@ var hub = require('widget').hub
 
 var tours = {
 
-  fetch: function() {
-    $.get(hub.API_ROOT + '/tours', function(tours) {
-      hub.trigger('toursLoaded', tours)
+  details: function(name, cb) {
+    $.get(hub.API_ROOT + '/tours/' + name, function(tour) {
+      hub.trigger('tourLoaded', tour)
+      if (cb) cb(tour)
     })
   },
 
@@ -44,7 +45,7 @@ var tours = {
   }
 }
 
-hub.on('loadTours', tours.fetch, tours)
-hub.on('loadMyTours', tours.fetchMine, tours)
+hub.on('toursNeeded', tours.fetch, tours)
+hub.on('myToursNeeded', tours.fetchMine, tours)
 hub.on('saveTours', tours.save, tours)
 hub.on('destroyTour', tours.destroy, tours)

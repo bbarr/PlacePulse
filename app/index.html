@@ -17,7 +17,6 @@
         <ul rv-show=":currentUser" class="nav navbar-nav">
           <li><a href="#" rv-on-click="logout | preventDefault">Log out</a></li>
           <li><a href="#" rv-on-click="showMenu | preventDefault">Menu</a></li>
-          <li><a href="#" rv-on-click="showFilters | preventDefault">Filters</a></li>
         </ul>
       </div>
     </div>
@@ -27,9 +26,10 @@
     <div id="places-list" rv-widget data-widget-name="places-list"></div>
     <div id="list-picker" rv-widget data-widget-name="list-picker"></div>
 
+    <div rv-widget data-widget-name="filters"></div>
     <div rv-widget data-widget-name="onboarding"></div>
     <div rv-widget data-widget-name="menu"></div>
-    <div rv-widget data-widget-name="filters"></div>
+    <div rv-widget data-widget-name="welcome"></div>
   </div>
 
   <script src="/js/boot.js"></script>

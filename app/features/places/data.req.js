@@ -11,7 +11,9 @@ var places = {
   current: [],
 
   save: function(place) {
-    hub.trigger('placeSaved')
+    $.post(hub.API_ROOT + '/places', place, function() {
+      hub.trigger('placeSaved')
+    })
   },
 
   find: function(filters) {
@@ -19,9 +21,9 @@ var places = {
     var url = hub.API_ROOT + '/places?q[region]=orleans.ma'
     if (filters) {
       if (filters.category) {
-        url += '&q[category]=' + filters.category.name
-      } else if (filters.list) {
-        url += '&list=' + filters.list.name
+        url += '&q[category]=' + filters.category.name + '&q[categoryRange]=' + filters.category.factualIds.join(',')
+      } else if (filters.tour) {
+        url += '&tour=' + filters.tour.name
       }
     } else return
 
@@ -42,11 +44,6 @@ var places = {
     }
 
     return fetch(1)
-    
-    $.get(url, function(places) {
-      places.current = places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
-      hub.trigger('placesLoaded', places.current)
-    })
   },
 
   filter: function(obj) {

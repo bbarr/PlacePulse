@@ -14,7 +14,8 @@ $.ajaxSetup({
   }
 })
 
-hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
+//hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
+hub.API_ROOT = 'http://localhost:3000'
 
 // require all widgets
 
@@ -44,5 +45,5 @@ var VM = Backbone.Model.extend({
 
 rivets.bind(document.getElementById('app'), new VM)
 
-hub.trigger('showFilters')
+hub.trigger('showWelcome')
 

@@ -183,3 +183,16 @@ li.list-place {
   border: none;
   padding-bottom: 0;
 }
+
+#filters {
+  position: absolute;
+  right: -$sidebar-width;
+  width: $sidebar-width;
+  transition: all 1s;
+  background: #fff;
+  bottom: 0;
+  top: $header-height;
+  &.active {
+    right: 0;
+  }
+}

@@ -13,6 +13,10 @@ module.exports = asWidget('places-list', function(hub) {
       widget.start()
     })
 
+  widget.showFilters = function() {
+    hub.trigger('showFilters')
+  }
+
   widget.select = function(_, _, binding) {
     var place = binding.view.models.place
     hub.trigger('placeSelected', place)
@@ -29,7 +33,7 @@ module.exports = asWidget('places-list', function(hub) {
   })
 
   hub.on('filterSelected', function(filters) {
-    var filter = filters.category||filters.list
+    var filter = filters.category||filters.tour ||{}
     widget.set('title', filter.name)
     widget.set('className', filter.className)
     widget.set('icon', filter.icon)

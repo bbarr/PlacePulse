@@ -1,12 +1,12 @@
-
 var asWidget = require('widget')
 
 module.exports = asWidget('filters', function(hub) {
   var widget = this
 
   widget
-    .template('/features/filters/widgets/modal/template.html')
+    .template('/features/filters/widgets/sidebar/template.html')
     .on('installed', function() {
+      widget.set('list', 'tours')
       widget.start().hide()
     })
 
@@ -15,22 +15,38 @@ module.exports = asWidget('filters', function(hub) {
     hub.trigger('filterSelected', { category: category })
   }
 
-  widget.selectList = function(_, _, binding) {
-    var list = binding.view.models.list
-    hub.trigger('filterSelected', { list: list })
+  widget.selectTour = function(_, _, binding) {
+    var tour = binding.view.models.tour
+    hub.trigger('filterSelected', { tour: tour })
   }
 
   hub.on('showFilters', function() {
     widget.show()
   })
 
+  widget.show = function() {
+    widget.set('visible', true)
+    widget.set('active', true)
+  }
+
+  widget.hide = function() {
+    widget.set('active', false)
+  }
+
+  widget.showTours = function() {
+    widget.set('list', 'tours')
+  }
+
+  widget.showCategories = function() {
+    widget.set('list', 'categories')
+  }
+
   hub.on('filtersLoaded', function(filters) {
     widget.set('categories', filters.categories)
-    widget.set('lists', filters.lists)
+    widget.set('tours', filters.tours)
   })
 
   hub.on('filterSelected', widget.hide, widget)
 
   hub.trigger('filtersNeeded')
 })
-

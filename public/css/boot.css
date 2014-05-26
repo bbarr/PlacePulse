@@ -6103,3 +6103,14 @@ li.list-place {
 .modal-header {
   border: none;
   padding-bottom: 0; }
+
+#filters {
+  position: absolute;
+  right: -300px;
+  width: 300px;
+  transition: all 1s;
+  background: #fff;
+  bottom: 0;
+  top: 56px; }
+  #filters.active {
+    right: 0; }

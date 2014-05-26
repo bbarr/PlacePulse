@@ -68,7 +68,7 @@ module.exports = asWidget('map', function(hub) {
       })
 
   hub.on('filterSelected', function(filters) {
-    var filter = filters.category||filters.list
+    var filter = filters.category || filters.tour || {}
     widget.set('className', filter.className)
   })
 

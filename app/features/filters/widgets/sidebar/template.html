@@ -1,0 +1,27 @@
+<div rv-class-active="widget:active" id="filters">
+  <div class="filters-header">
+    <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
+    <a href="#" rv-on-click="widget.showTours | preventDefault">Tours</a>
+    <a href="#" rv-on-click="widget.showCategories | preventDefault">Categories</a>
+  </div>
+  <div rv-show="widget:list | eql categories" class="filters-body">
+    <h3>Categories</h3>
+    <div>
+      <ul class="row filter-list">
+        <li class="col-xs-6" rv-on-click="widget.selectCategory" rv-each-category="widget:categories">
+        { category.name }
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div rv-show="widget:list | eql tours" class="filters-body">
+    <h3>Tours</h3>
+    <div>
+      <ul class="row filter-list">
+        <li class="col-xs-6" rv-on-click="widget.selectTour" rv-each-tour="widget:tours">
+        { tour.name }
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
