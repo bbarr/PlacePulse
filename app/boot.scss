@@ -10,12 +10,29 @@ $black: #000;
 
 $concrete: #f3f3f3;
 $white: #fff;
-$cornflower-blue: #619bae;
+$hippie-blue: #619bae;
 $flamingo: #f37130;
 $trout: #4c5059;
+$nevada: #6c6e71;
 $mojo: #bc5039;
+$norway: #9fc199;
+$mountbatten-pink: #9B7C88;
+$sun: #FBAD17;
+$tower-grey: #ADC1C1;
+$bombay: #b2b3b6;
+$juniper: #6D9495;
+$earls-green: #b3b92e;
+$terracotta: #E18167;
+$muesli: #AE8861;
+$salem: #0C6F4A;
 
-$food: #f37130;
+$food: $flamingo;
+$outdoors: $salem;
+$arts: $mojo;
+$travel: $sun;
+$nightlife: $nevada;
+$professional: $juniper;
+$shop: $terracotta;
 
 body {
   padding-top: $header-height;
