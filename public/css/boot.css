@@ -6775,7 +6775,6 @@ li.list-place {
       border-bottom: 1px solid #ccc;
       background: #fff;
       padding: 0 0 0 10px;
-      margin: 0 0 4px;
       transition: all 0.15s; }
       #filters .filter-list li:hover {
         cursor: pointer;
