@@ -1,0 +1,16 @@
+<div class="modal show" rv-as-class="widget:place:category.className" id="place-details">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
+        <i class="fa" rv-as-class="widget:place:category.icon"></i>
+        <h3>{ widget:place:name }</h3>
+      </div>
+      <div class="modal-body">
+        <img rv-if="widget:place:photo" rv-src="widget:place:photo | foursquarePhoto" /> 
+        <a rv-href="widget:place:menu.url">{ widget:place:menu.anchor }</a>
+      </div>
+    </div>
+  </div>
+</div>
+

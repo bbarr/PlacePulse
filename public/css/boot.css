@@ -6539,6 +6539,9 @@ body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased; }
 
+body .leaflet-container {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin: 0; }
@@ -6750,27 +6753,90 @@ li.list-place {
     .tp-map-tooltip .tooltip-listing strong {
       font-size: 16px; }
     .tp-map-tooltip .tooltip-listing:last-child {
-      border: none; }
+      border-bottom: none; }
     .tp-map-tooltip .tooltip-listing i {
       position: absolute;
       top: 50%;
       right: 10px;
-      margin-top: -10px;
-      font-size: 20px; }
+      margin-top: -13px;
+      font-size: 26px; }
     .tp-map-tooltip .tooltip-listing:hover {
       cursor: pointer;
-      background: #b2b3b6; }
+      background: #f3f3f3; }
 
 
 .food .details {
   border-left: 5px solid #f37130; }
 .food .listing {
   border-right: 5px solid #f37130; }
-.food .leaflet-marker-icon {
-  background: #f37130; }
 
-.services .leaflet-marker-icon {
-  background: #619bae; }
+.services .details {
+  border-left: 5px solid #6D9495; }
+.services .listing {
+  border-right: 5px solid #6D9495; }
+
+.automotive .details {
+  border-left: 5px solid #AE8861; }
+.automotive .listing {
+  border-right: 5px solid #AE8861; }
+.automotive .tooltip-listing i {
+  color: #AE8861; }
+
+.community .details {
+  border-left: 5px solid #6c6e71; }
+.community .listing {
+  border-right: 5px solid #6c6e71; }
+
+.education .details {
+  border-left: 5px solid #0C6F4A; }
+.education .listing {
+  border-right: 5px solid #0C6F4A; }
+.education .tooltip-listing i {
+  color: #0C6F4A; }
+
+.religious .details {
+  border-left: 5px solid #ADC1C1; }
+.religious .listing {
+  border-right: 5px solid #ADC1C1; }
+
+.healthcare .details {
+  border-left: 5px solid #D33A35; }
+.healthcare .listing {
+  border-right: 5px solid #D33A35; }
+.healthcare .tp-marker:hover, .healthcare .tp-marker.tp-active {
+  background-color: #D33A35; }
+.healthcare .tp-marker .inner {
+  background-color: #D33A35; }
+
+.landmarks .details {
+  border-left: 5px solid #C97933; }
+.landmarks .listing {
+  border-right: 5px solid #C97933; }
+
+.outdoors .details {
+  border-left: 5px solid #0C6F4A; }
+.outdoors .listing {
+  border-right: 5px solid #0C6F4A; }
+
+.retail .details {
+  border-left: 5px solid #E18167; }
+.retail .listing {
+  border-right: 5px solid #E18167; }
+
+.entertainment .details {
+  border-left: 5px solid #bc5039; }
+.entertainment .listing {
+  border-right: 5px solid #bc5039; }
+
+.recreation .details {
+  border-left: 5px solid #9fc199; }
+.recreation .listing {
+  border-right: 5px solid #9fc199; }
+
+.travel .details {
+  border-left: 5px solid #619bae; }
+.travel .listing {
+  border-right: 5px solid #619bae; }
 
 .select-icons i {
   border: 1px solid #000;
@@ -6788,9 +6854,14 @@ li.list-place {
   right: -300px;
   width: 300px;
   transition: right 0.5s;
-  background: #fff;
+  background: #f3f3f3;
   bottom: 0;
   top: 61px; }
+  #filters .desc {
+    background-color: #f3f3f3;
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none; }
   #filters.active {
     right: 0; }
   #filters .filters-header {
@@ -6800,8 +6871,7 @@ li.list-place {
       width: 50%;
       line-height: 40px; }
   #filters .filter-list {
-    background: #f3f3f3;
-    padding-top: 4px; }
+    background: #f3f3f3; }
     #filters .filter-list li {
       border-bottom: 1px solid #b2b3b6;
       background: #fff;
@@ -6834,4 +6904,9 @@ li.list-place {
       cursor: pointer;
       background: #b2b3b6; }
     #cluster-tooltip > div:last-child {
-      border: none; }
+      border-bottom: none; }
+
+#place-details .modal-header i {
+  float: left;
+  font-size: 30px;
+  margin-right: 10px; }

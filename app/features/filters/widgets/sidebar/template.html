@@ -4,19 +4,28 @@
     <a href="#" rv-class-active="widget:list | eql categories" rv-on-click="widget.showCategories | preventDefault">Categories</a>
   </nav>
   <div rv-show="widget:list | eql categories" class="filters-body">
+    <p class="desc well">
+      This is a description of stuff. Look how amazing it all looks! Maybe Brendan is awesome.
+    </p>
     <ul class="filter-list">
       <li rv-cn-as-class="category.className" rv-on-click="widget.selectCategory" rv-each-category="widget:categories">
-      <div class="listing">
-        <i class="fa" rv-as-class="category.icon"></i>
-        <h3>{ category.name }</h3>
-      </div>
+        <div class="listing">
+          <i class="fa" rv-as-class="category.icon"></i>
+          <h3>{ category.name }</h3>
+        </div>
       </li>
     </ul>
   </div>
   <div rv-show="widget:list | eql tours" class="filters-body">
-    <ul class="row filter-list">
-      <li class="col-xs-6" rv-on-click="widget.selectTour" rv-each-tour="widget:tours">
-      { tour.name }
+    <p class="desc well">
+      This is a description of stuff. Look how amazing it all looks! Maybe Brendan is awesome.
+    </p>
+    <ul class="filter-list">
+      <li rv-cn-as-class="category.className" rv-on-click="widget.selectTour" rv-each-tour="widget:tours">
+        <div class="listing">
+          <i class="fa" rv-as-class="tour.icon"></i>
+          <h3>{ tour.name }</h3>
+        </div>
       </li>
     </ul>
   </div>

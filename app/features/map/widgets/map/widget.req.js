@@ -50,14 +50,18 @@ module.exports = asWidget('map', function(hub) {
       }
     })
 
-    clusters.on('clusterclick', function (a) {
-      console.log('marker cluster clicked')
+    clusters.on('clusterclick', function(a) {
+      var marker = a.layer.getAllChildMarkers()[0]
+      selectMarker(marker)
     })
 
     clusters.addTo(widget.get('map'))
     widget.set('clusters', clusters)
 
     tooltip = L.popup({ offset: [ 0, -20 ], className: 'tp-map-tooltip', closeButton: false, width: 300, maxHeight: 300 })
+    tooltip.on('click', function(e) {
+      debugger
+    })
   }
 
   function buildMarker(place) {
@@ -104,12 +108,21 @@ module.exports = asWidget('map', function(hub) {
     marker._icon.className += ' tp-active'
   }
 
+  // TODO 
   function openTooltip(marker) {
     var subMarkers = isCluster(marker) ? marker.getAllChildMarkers() : [ marker ]
     tooltip.setLatLng(marker.getLatLng())
-    tooltip.setContent(subMarkers.map(function(m) {
-      return "<div class='tooltip-listing'><strong>" + m.place.get('name') + "</strong><div>" + m.place.get('location').street + "<i class='fa fa-chevron-circle-right'></i></div></div>"
-    }).join(''))
+    var html = subMarkers.map(function(m) {
+      return "<div class='tooltip-listing' rv-on-click='openDetails | preventDefault'><strong>" + m.place.get('name') + "</strong><div>" + m.place.get('location').street + "<i class='fa fa-chevron-circle-right'></i></div></div>"
+    }).join('')
+    var el = $(html).get(0)
+    rivets.bind(el, {
+      openDetails: function() {
+        hub.trigger('showDetails', marker.place)
+        if (isCluster(marker)) hub.trigger('placeSelected', marker.place)
+      }
+    })
+    tooltip.setContent(el)
     tooltip.openOn(map)
   }
 
