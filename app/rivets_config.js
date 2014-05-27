@@ -16,6 +16,11 @@ rivets.adapters['.'] = {
   }
 }
 
+rivets.binders.position = function(el, pos) {
+  el.style.left = pos.x + 'px'
+  el.style.top = pos.y + 'px'
+}
+
 rivets.binders['*-as-class'] = function(el, val) {
   var key = this.args[0] || ''
   var current = el.getAttribute('data-' + key) || ''

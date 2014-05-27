@@ -6601,7 +6601,7 @@ input, textarea {
   text-transform: uppercase;
   transition: all 0.15s;
   line-height: 60px;
-  border-left: 1px solid #ccc;
+  border-left: 1px solid #b2b3b6;
   padding: 0 15px;
   float: left;
   text-align: center; }
@@ -6619,7 +6619,7 @@ input, textarea {
   left: 0;
   right: 0;
   background: #f3f3f3;
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 1px solid #b2b3b6; }
   .main-nav nav {
     float: right; }
     .main-nav nav a:last-child {
@@ -6630,11 +6630,11 @@ input, textarea {
   position: absolute;
   width: 200px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid #b2b3b6;
   background: #fff;
   padding: 10px; }
   #list-picker strong {
-    border-bottom: 1px solid #ccc; }
+    border-bottom: 1px solid #b2b3b6; }
   #list-picker .arrow {
     position: absolute;
     right: -10px;
@@ -6657,7 +6657,7 @@ input, textarea {
   overflow-y: auto;
   width: 300px;
   background: #f3f3f3;
-  border-left: 1px solid #ccc; }
+  border-left: 1px solid #b2b3b6; }
   #places-list i {
     padding: 10px 10px 0px 10px; }
   #places-list .list-header {
@@ -6718,17 +6718,48 @@ li.list-place {
     line-height: 20px;
     width: 40px; }
 
-.leaflet-marker-icon {
-  border-radius: 32px;
-  font-size: 16px;
-  height: 32px !important;
-  width: 32px !important;
-  margin-left: -16px !important;
-  margin-top: -16px !important;
-  background: white;
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 28px !important; }
+.tp-marker {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px;
+  transition: background-color 0.15s; }
+  .tp-marker:hover, .tp-marker.tp-active {
+    cursor: pointer;
+    background-color: #619bae; }
+    .tp-marker:hover .inner, .tp-marker.tp-active .inner {
+      background-color: #619bae; }
+  .tp-marker .inner {
+    transition: background-color 0.15s;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    background-color: #7cadbc;
+    color: #fff;
+    height: 32px;
+    line-height: 32px; }
+
+.tp-map-tooltip {
+  width: 300px;
+  max-height: 300px; }
+  .tp-map-tooltip .leaflet-popup-content {
+    padding: 0; }
+  .tp-map-tooltip .tooltip-listing {
+    position: relative;
+    border-bottom: 1px solid #b2b3b6;
+    padding: 5px; }
+    .tp-map-tooltip .tooltip-listing strong {
+      font-size: 16px; }
+    .tp-map-tooltip .tooltip-listing:last-child {
+      border: none; }
+    .tp-map-tooltip .tooltip-listing i {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin-top: -10px;
+      font-size: 20px; }
+    .tp-map-tooltip .tooltip-listing:hover {
+      cursor: pointer;
+      background: #b2b3b6; }
 
 
 .food .details {
@@ -6763,7 +6794,7 @@ li.list-place {
   #filters.active {
     right: 0; }
   #filters .filters-header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #b2b3b6;
     overflow: auto; }
     #filters .filters-header a {
       width: 50%;
@@ -6772,7 +6803,7 @@ li.list-place {
     background: #f3f3f3;
     padding-top: 4px; }
     #filters .filter-list li {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #b2b3b6;
       background: #fff;
       padding: 0 0 0 10px;
       transition: all 0.15s; }
@@ -6788,3 +6819,19 @@ li.list-place {
         line-height: 40px;
         margin-left: 20px;
         text-transform: capitalize; }
+
+#cluster-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  padding: 10px;
+  margin-left: 30px;
+  min-width: 200px; }
+  #cluster-tooltip > div {
+    border-bottom: 1px solid #b2b3b6;
+    padding: 8px 0; }
+    #cluster-tooltip > div:hover {
+      cursor: pointer;
+      background: #b2b3b6; }
+    #cluster-tooltip > div:last-child {
+      border: none; }

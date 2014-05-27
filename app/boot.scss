@@ -5,12 +5,13 @@
 
 $header-height: 61px;
 $sidebar-width: 300px;
-$silver: #ccc;
+$silver: #b2b3b6;
 $black: #000;
 
 $concrete: #f3f3f3;
 $white: #fff;
 $hippie-blue: #619bae;
+$hippie-blue-light: lighten($hippie-blue, 8%);
 $flamingo: #f37130;
 $trout: #4c5059;
 $nevada: #6c6e71;
@@ -121,7 +122,7 @@ input, textarea {
     float: left;
     text-align: center;
     &:hover {
-      background: lighten($hippie-blue, 8%);
+      background: $hippie-blue-light;
       color: $white;
       text-decoration: none;
     }
@@ -218,7 +219,7 @@ li.list-place {
   margin: 6px 0;
   transition: all .15s;
   &:hover {
-    background: lighten($hippie-blue, 8%);
+    background: $hippie-blue-light;
     color: $white;
     cursor: pointer;
   }
@@ -269,17 +270,58 @@ li.list-place {
 }
 
 
-.leaflet-marker-icon {
-  border-radius: 32px;
-  font-size: 16px;
-  height: 32px !important;
-  width: 32px !important;
-  margin-left: -16px !important;
-  margin-top: -16px !important;
-  background: white;
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 28px !important;
+.tp-marker {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .2);
+  padding: 4px;
+  transition: background-color .15s;
+  &:hover, &.tp-active {
+    cursor: pointer;
+    background-color: $hippie-blue;
+    .inner {
+      background-color: $hippie-blue;
+    }
+  }
+  .inner {
+    transition: background-color .15s;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    background-color: $hippie-blue-light;
+    color: $white;
+    height: 32px;
+    line-height: 32px;
+  }
+}
+
+.tp-map-tooltip {
+  width: 300px;
+  max-height: 300px;
+  .leaflet-popup-content {
+    padding: 0;
+  }
+  .tooltip-listing {
+    position: relative;
+    border-bottom: 1px solid $silver;
+    padding: 5px;
+    strong {
+      font-size: 16px;
+    }
+    &:last-child {
+      border: none;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      margin-top: -10px;
+      font-size: 20px;
+    }
+    &:hover {
+      cursor: pointer;
+      background: $silver;
+    }
+  }
 }
 
 .index {
@@ -362,6 +404,26 @@ li.list-place {
         margin-left: 20px;
         text-transform: capitalize;
       }
+    }
+  }
+}
+
+#cluster-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  padding: 10px;
+  margin-left: 30px;
+  min-width: 200px;
+  & > div {
+    border-bottom: 1px solid $silver;
+    padding: 8px 0;
+    &:hover {
+      cursor: pointer;
+      background: $silver;
+    }
+    &:last-child {
+      border: none;
     }
   }
 }
