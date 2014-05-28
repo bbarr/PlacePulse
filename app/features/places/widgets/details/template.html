@@ -7,10 +7,23 @@
         <h3>{ widget:place:name }</h3>
       </div>
       <div class="modal-body">
-        <img rv-if="widget:place:photo" rv-src="widget:place:photo | foursquarePhoto" /> 
-        <a rv-href="widget:place:menu.url">{ widget:place:menu.anchor }</a>
+        <div class="col-xs-6">
+          <img rv-if="widget:place:photo" class="img-thumbnail" rv-src="widget:place:photo | foursquarePhoto" />
+          <h3>{ widget:place:location.street }</h3>
+          <a rv-href="widget:place:menu.url">{ widget:place:menu.anchor }</a>
+        </div>
+        <div class="col-xs-6">
+          <p>moo</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <ul class="nav nav-pills nav-justified">
+          <li class="active"><a href="#">Details</a></li>
+          <li><a href="#">Description</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
-

@@ -28,6 +28,9 @@ $muesli: #AE8861;
 $salem: #0C6F4A;
 $valencia: #D33A35;
 $copper: #C97933;
+$ripe-lemon: #ecdf0d;
+$money-green: #216C2A
+
 
 $automotive: $muesli;
 $community: $nevada;
@@ -42,6 +45,8 @@ $entertainment: $mojo;
 $food: $flamingo;
 $recreation: $norway;
 $travel: $hippie-blue;
+$banks: $money-green;
+$home: $ripe-lemon;
 
 body {
   padding-top: $header-height;
@@ -198,7 +203,7 @@ input, textarea {
   width: $sidebar-width;
   background: $concrete;
   border-left: 1px solid $silver;
-  i { 
+  i {
     padding: 10px 10px 0px 10px;
   }
   .list-header {
@@ -569,6 +574,11 @@ li.list-place {
       float: left;
       font-size:30px;
       margin-right: 10px;
+    }
+  .modal-body {
+    img{
+       float:left;
+      }
     }
   }
 }

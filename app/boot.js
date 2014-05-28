@@ -14,6 +14,7 @@ $.ajaxSetup({
   }
 })
 
+
 //hub.API_ROOT = 'http://townpulse-api.herokuapp.com'
 hub.API_ROOT = 'http://localhost:3000'
 //hub.API_ROOT = 'http://192.168.1.102:3000'
@@ -54,4 +55,3 @@ hub.on('menuHidden', function() { vm.set('showingMenu', false) })
 rivets.bind(document.getElementById('app'), vm)
 
 hub.trigger('showWelcome')
-
