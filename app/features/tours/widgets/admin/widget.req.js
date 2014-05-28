@@ -90,6 +90,6 @@ module.exports = asWidget('tours-admin', function(hub) {
 
   hub.on('tourCreated tourDestroyed', hub.trigger.bind(hub, 'loadMyTours'))
 
-  hub.trigger('loadMyTours')
+  hub.trigger('myToursNeeded')
 })
 

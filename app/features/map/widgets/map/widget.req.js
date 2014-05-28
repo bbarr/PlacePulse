@@ -112,14 +112,14 @@ module.exports = asWidget('map', function(hub) {
   function openTooltip(marker) {
     var subMarkers = isCluster(marker) ? marker.getAllChildMarkers() : [ marker ]
     tooltip.setLatLng(marker.getLatLng())
-    var html = subMarkers.map(function(m) {
-      return "<div class='tooltip-listing' rv-on-click='openDetails | preventDefault'><strong>" + m.place.get('name') + "</strong><div>" + m.place.get('location').street + "<i class='fa fa-chevron-circle-right'></i></div></div>"
-    }).join('')
-    var el = $(html).get(0)
+    var listingHTML = "<div class='tooltip-listing' rv-each-place='places' rv-on-click='openDetails | preventDefault'><strong>{ place:name }</strong><div>{ place:location.street }<i class='fa fa-chevron-circle-right'></i></div></div>"
+    var el = $('<div>' + listingHTML + '</div>').get(0)
     rivets.bind(el, {
-      openDetails: function() {
-        hub.trigger('showDetails', marker.place)
-        if (isCluster(marker)) hub.trigger('placeSelected', marker.place)
+      places: _.pluck(subMarkers, 'place'),
+      openDetails: function(_, _, binding) {
+        var place = binding.view.models.place
+        hub.trigger('showDetails', place)
+        if (isCluster(marker)) hub.trigger('placeSelected', place)
       }
     })
     tooltip.setContent(el)
