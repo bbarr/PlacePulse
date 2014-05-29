@@ -12,7 +12,7 @@ module.exports = asWidget('list-picker', function(hub) {
   })
 
   widget.create = function() {
-    hub.trigger('createNewTour')
+    hub.trigger('createNewTour', place)
     widget.hide()
   }
 

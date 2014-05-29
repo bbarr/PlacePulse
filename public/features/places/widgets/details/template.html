@@ -14,7 +14,7 @@
             </div>
             <div class="col-xs-6 col-sm-8">
               <div class="place-detail"><strong>Address:</strong><span>{ widget:place:location.street }</div>
-              <div class="place-detail"><strong>Hours:</strong><span rv-html="widget:place:hoursDisplay | asHours"></span></div>
+              <div rv-show="widget:place:hoursDisplay" class="place-detail"><strong>Hours:</strong><span rv-html="widget:place:hoursDisplay | asHours"></span></div>
               <div class="place-detail"><strong>Phone:</strong><span>{ widget:place:phone }</span></div>
               <div class="place-detail"><strong>Website:</strong><span>{ widget:place:website }</span></div>
               <div class="place-detail" rv-show="widget:place:rating"><strong>Foursquare Rating:</strong><span>{ widget:place:rating }</span></div>

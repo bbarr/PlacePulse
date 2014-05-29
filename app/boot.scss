@@ -200,6 +200,14 @@ input, textarea {
   strong {
     font-size: 20px;
   }
+  textarea.place {
+    margin-top: 10px;
+  }
+}
+#tour-places-edit {
+  h4 {
+    margin-bottom: 10px;
+  }
 }
 
 .admin-tour-item {

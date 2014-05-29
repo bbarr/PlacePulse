@@ -6657,6 +6657,11 @@ input, textarea {
   margin-bottom: 10px; }
 #tours-admin strong {
   font-size: 20px; }
+#tours-admin textarea.place {
+  margin-top: 10px; }
+
+#tour-places-edit h4 {
+  margin-bottom: 10px; }
 
 .admin-tour-item {
   margin: 10px 0;

@@ -29,8 +29,11 @@ module.exports = asWidget('tours-admin', function(hub) {
     })
   }
 
-  widget.create = function() {
+  widget.create = function(seed) {
     var tour = { places: [] }
+    if (seed) {
+      tour.places.push(seed.attributes)
+    }
     widget.setTour(tour)
   }
 
@@ -123,10 +126,10 @@ module.exports = asWidget('tours-admin', function(hub) {
     widget.set('tours', _.remove(tours, { _id: destroyed._id }))
   })
 
-  hub.on('createNewTour', function() {
+  hub.on('createNewTour', function(place) {
     hub.trigger('showMenu')
     hub.trigger('admin:pane', 'tours')
-    widget.create()
+    widget.create(place)
   })
 
   hub.trigger('myToursNeeded')
