@@ -1,4 +1,4 @@
-<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+<div class="loader"><i class="fa fa-spinner fa-spin fa-lg"></i></div>
 <div rv-cn-as-class="widget:className">
   <div class="list-header">
     <h3>
@@ -10,7 +10,7 @@
     </p>
   </div>
 	<ul>
-	  <li rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select | preventDefault">
+	  <li rv-as-class="place:category.className" rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select | preventDefault">
 	    <div class="details">
 	      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
         <h4>{ place:name }</h4>
