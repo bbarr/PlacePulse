@@ -37,14 +37,15 @@ module.exports = asWidget('map', function(hub) {
     })
     widget.set('map', map)
 
-    var clusters = L.markerClusterGroup({
-      spiderfyOnMaxZoom: false, 
-      showCoverageOnHover: false, 
+      var clusters = L.markerClusterGroup({
+      spiderfyOnMaxZoom: false,
+      showCoverageOnHover: false,
       zoomToBoundsOnClick: false,
       singleMarkerMode: false,
+      maxClusterRadius: 50,
       iconCreateFunction: function(cluster) {
-        return L.divIcon({ 
-          className: 'tp-marker', 
+        return L.divIcon({
+          className: 'tp-marker',
           html: '<div class="inner">' + cluster.getChildCount() + '</div>',
           iconSize: [ 40, 40 ]
         })
@@ -63,12 +64,12 @@ module.exports = asWidget('map', function(hub) {
   }
 
   function buildMarker(place) {
-    return L.marker(buildLatLng(place), { 
-      icon: L.divIcon({ 
-        className: 'tp-marker ' + place.get('category').className, 
+    return L.marker(buildLatLng(place), {
+      icon: L.divIcon({
+        className: 'tp-marker ' + place.get('category').className,
         html: '<div class="inner">1</div>',
         iconSize: [ 40, 40 ]
-      }) 
+      })
     })
   }
 
@@ -77,8 +78,8 @@ module.exports = asWidget('map', function(hub) {
   }
 
   function findMarker(place) {
-    return _.find(widget.get('markers'), function(m) { 
-      return m.place.cid == place.cid 
+    return _.find(widget.get('markers'), function(m) {
+      return m.place.cid == place.cid
     })
   }
 
@@ -89,7 +90,7 @@ module.exports = asWidget('map', function(hub) {
   function isClustered(marker) {
     return !marker._icon && marker.place
   }
-  
+
   function isCluster(layer) {
     return layer._markers
   }
@@ -106,7 +107,7 @@ module.exports = asWidget('map', function(hub) {
     marker._icon.className += ' tp-active'
   }
 
-  // TODO 
+  // TODO
   function openTooltip(marker) {
     var subMarkers = isCluster(marker) ? marker.getAllChildMarkers() : [ marker ]
     tooltip.setLatLng(marker.getLatLng())
@@ -158,7 +159,7 @@ module.exports = asWidget('map', function(hub) {
       .filter(hasLatLng)
       .map(function(place) {
         var marker = buildMarker(place)
-        marker.on('click', function(e) { 
+        marker.on('click', function(e) {
           hub.trigger('placeSelected', e.target.place)
         })
         marker.place = place
@@ -188,4 +189,3 @@ module.exports = asWidget('map', function(hub) {
 
   hub.on('placesLoaded', widget.loaded, widget)
 })
-
