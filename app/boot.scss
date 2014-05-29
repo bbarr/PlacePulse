@@ -28,8 +28,14 @@ $muesli: #AE8861;
 $salem: #0C6F4A;
 $valencia: #D33A35;
 $copper: #C97933;
+<<<<<<< HEAD
 $ripe-lemon: #ecdf0d;
 $money-green: #216C2A;
+=======
+$seance: #7C1F96;
+$money-green: #216C2A;
+
+>>>>>>> styles for colors oh my
 
 $automotive: $muesli;
 $community: $nevada;
@@ -45,7 +51,7 @@ $food: $flamingo;
 $recreation: $norway;
 $travel: $hippie-blue;
 $banks: $money-green;
-$home: $ripe-lemon;
+$home: $seance;
 
 body {
   padding-top: $header-height;
@@ -351,6 +357,7 @@ li.list-place {
     padding: 5px;
     strong {
       font-size: 16px;
+      padding-right: 30px;
     }
     &:last-child {
       border-bottom: none;
@@ -380,11 +387,17 @@ li.list-place {
   .listing {
     border-right: 5px solid $food;
   }
-  &.tp-marker .inner {
-    background: $food;
+
+.tooltip-listing i {
+    color: $food;
   }
-  &.tp-marker.tp-active, &.tp-marker:hover {
-    background: $food;
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $food;
+    }
+    .inner {
+      background-color: $food;
+    }
   }
 }
 
@@ -394,6 +407,57 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $services;
+  }
+  .tooltip-listing i {
+    color: $services;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $services;
+    }
+    .inner {
+      background-color: $services;
+    }
+  }
+}
+
+.banks {
+  .details {
+    border-left: 5px solid $banks;
+  }
+  .listing {
+    border-right: 5px solid $banks;
+  }
+  .tooltip-listing i {
+    color: $banks;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $banks;
+    }
+    .inner {
+      background-color: $banks;
+    }
+  }
+}
+
+.home {
+  .details {
+    border-left: 5px solid $home;
+  }
+  .listing {
+    border-right: 5px solid $home;
+  }
+  .tooltip-listing i {
+    color: $home;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $home;
+    }
+    .inner {
+      background-color: $home;
+    }
   }
 }
 
@@ -407,8 +471,13 @@ li.list-place {
   .tooltip-listing i {
     color: $automotive;
   }
-  &.tp-marker .inner {
-    background: $automotive;
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $automotive;
+    }
+    .inner {
+      background-color: $automotive;
+    }
   }
 }
 
@@ -418,6 +487,17 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $community;
+  }
+  .tooltip-listing i {
+    color: $community;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $community;
+    }
+    .inner {
+      background-color: $community;
+    }
   }
 }
 
@@ -431,6 +511,14 @@ li.list-place {
   .tooltip-listing i {
     color: $education;
   }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $education;
+    }
+    .inner {
+      background-color: $education;
+    }
+  }
 }
 
 .religious {
@@ -440,6 +528,17 @@ li.list-place {
   .listing {
     border-right: 5px solid $religious;
   }
+  .tooltip-listing i {
+    color: $religious;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $religious;
+    }
+    .inner {
+      background-color: $religious;
+    }
+  }
 }
 
 .healthcare {
@@ -448,6 +547,9 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $healthcare;
+  }
+  .tooltip-listing i {
+    color: $healthcare;
   }
   .tp-marker {
     &:hover, &.tp-active {
@@ -466,6 +568,17 @@ li.list-place {
   .listing {
     border-right: 5px solid $landmarks;
   }
+  .tooltip-listing i {
+    color: $landmarks;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $landmarks;
+    }
+    .inner {
+      background-color: $landmarks;
+    }
+  }
 }
 
 .outdoors {
@@ -474,6 +587,17 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $outdoors;
+  }
+  .tooltip-listing i {
+    color: $outdoors;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $outdoors;
+    }
+    .inner {
+      background-color: $outdoors;
+    }
   }
 }
 
@@ -484,6 +608,17 @@ li.list-place {
   .listing {
     border-right: 5px solid $retail;
   }
+  .tooltip-listing i {
+    color: $retail;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $retail;
+    }
+    .inner {
+      background-color: $retail;
+    }
+  }
 }
 
 .entertainment {
@@ -492,6 +627,17 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $entertainment;
+  }
+  .tooltip-listing i {
+    color: $entertainment;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $entertainment;
+    }
+    .inner {
+      background-color: $entertainment;
+    }
   }
 }
 
@@ -502,6 +648,17 @@ li.list-place {
   .listing {
     border-right: 5px solid $recreation;
   }
+  .tooltip-listing i {
+    color: $recreation;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $recreation;
+    }
+    .inner {
+      background-color: $recreation;
+    }
+  }
 }
 
 .travel {
@@ -510,6 +667,17 @@ li.list-place {
   }
   .listing {
     border-right: 5px solid $travel;
+  }
+  .tooltip-listing i {
+    color: $travel;
+  }
+  .tp-marker {
+    &:hover, &.tp-active {
+      background-color: $travel;
+    }
+    .inner {
+      background-color: $travel;
+    }
   }
 }
 
