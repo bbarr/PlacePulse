@@ -10,8 +10,21 @@ asWidget('welcome', function(hub) {
     })
 
   widget.hide = function() {
-    hub.trigger('showCategories')
+    hub.trigger('safeShowCategories')
     widget.set('visible', false)
+  }
+
+  widget.showCategories = function() {
+    widget.set('visible', false)
+    hub.trigger('showCategories')
+  }
+  widget.showTours = function() {
+    widget.set('visible', false)
+    hub.trigger('showTours')
+  }
+  widget.showOnboarding = function() {
+    widget.set('visible', false)
+    hub.trigger('showSignup')
   }
 
   hub.on('showWelcome', function() {

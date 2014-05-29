@@ -21,6 +21,11 @@ var tours = {
     var raw = tour.attributes
     raw.places = raw.places.map(function(p) { return p.attributes })
     var isNew = !raw._id
+
+    if (!raw.name) {
+      return hub.trigger('tourSaveFailed')
+    }
+
     $.ajax({
       url: hub.API_ROOT + '/tours' + (isNew ? '' : ('/' + raw._id)),
       type: isNew ? 'POST' : 'PUT',
@@ -29,6 +34,9 @@ var tours = {
       success: function(saved) {
         hub.trigger('tourSaved', isNew ? saved : raw)
         if (cb) cb()
+      },
+      error: function() {
+        hub.trigger('tourSaveFailed')
       }
     })
   },

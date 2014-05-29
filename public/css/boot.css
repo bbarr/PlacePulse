@@ -7057,3 +7057,55 @@ li.list-place {
 #password-reset {
   display: inline-block;
   margin-left: 20px; }
+
+#welcome .modal-dialog {
+  /*background: url('/img/body_bg.jpg') 0 0 no-repeat;*/
+  margin-top: 100px; }
+#welcome .modal-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0; }
+#welcome .modal-body {
+  padding: 20px;
+  font-size: 20px; }
+#welcome .close {
+  z-index: 10;
+  top: -4px;
+  right: 2px; }
+#welcome .top > div {
+  overflow: auto;
+  color: #b2b3b6;
+  padding: 10px;
+  color: #6c6e71;
+  font-size: 18px;
+  padding: 20px;
+  margin-bottom: 20px; }
+  #welcome .top > div img {
+    float: right;
+    margin-left: 40px; }
+  #welcome .top > div h2 {
+    color: #f37130;
+    margin-bottom: 10px; }
+    #welcome .top > div h2 small {
+      color: #6c6e71;
+      display: block; }
+  #welcome .top > div p {
+    font-size: 16px; }
+#welcome .blocky-nav a {
+  text-transform: none;
+  line-height: 20px;
+  padding: 20px 10px 0;
+  height: 180px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background: #7cadbc; }
+  #welcome .blocky-nav a strong {
+    text-transform: uppercase;
+    display: block;
+    font-size: 26px;
+    margin-bottom: 10px; }
+  #welcome .blocky-nav a:hover {
+    cursor: pointer;
+    background: #619bae; }
+  #welcome .blocky-nav a:last-child {
+    background: #f37130; }

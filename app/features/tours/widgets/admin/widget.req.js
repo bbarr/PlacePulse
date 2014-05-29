@@ -76,6 +76,12 @@ module.exports = asWidget('tours-admin', function(hub) {
     widget.set('selected', null)
   }
 
+  widget.on('change:visible', function() {
+    if (!widget.get('visible')) {
+      widget.set('flash', false)
+    }
+  })
+
   hub.on('addToTour', function(tour, place) {
     var myTour = _.find(widget.get('tours'), { _id: tour._id })
     hub.trigger('showMenu')
@@ -89,13 +95,24 @@ module.exports = asWidget('tours-admin', function(hub) {
   })
 
   hub.on('tourSaved', function(saved) {
-    var tours = widget.get('tours')
+    var tours = widget.get('tours') || []
     widget.set('tours', [])
     var newTours = tours.filter(function(tour) {
       return tour._id !== saved._id
     })
     newTours.push(saved)
     widget.set('tours', newTours) 
+    widget.set('flash', {
+      msg: 'Tour created!',
+      type: 'alert-success'
+    })
+  })
+
+  hub.on('tourSaveFailed', function() {
+    widget.set('flash', {
+      msg: 'Sorry, unable to create tour.',
+      type: 'alert-danger'
+    })
   })
 
   hub.on('tourDestroyed', function(destroyed) {

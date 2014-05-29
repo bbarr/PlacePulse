@@ -1,12 +1,31 @@
-<div class="modal show">
+<div class="modal show" id="welcome">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
-        <h4 class="modal-title">Welcome</h4>
-      </div>
+      <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
       <div class="modal-body">
-        welcome
+        <div class="row">
+          <div class="col-xs-12 top">
+            <div>
+              <img src="/img/orleans_badge.png" />
+              <h2><small>Welcome to the</small>OrleansPulse Beta</h2>
+              <p>You're local community resource for discovering the best of Orleans. Browse tours and places or signup to create or update your own.  Click below to get started and remember this is a beta so feedback is crucial! </p>
+            </div>
+          </div>
+          <nav class="blocky-nav col-xs-12">
+            <a class="col-xs-4 col first" href="#" rv-on-click="widget.showCategories | preventDefault">
+              <strong>Places</strong>
+              Find your favorite restaurant, shop, or local spot.
+            </a>
+            <a rv-on-click="widget.showTours | preventDefault" class="col-xs-4 col second" href="#">
+              <strong>Tours</strong>
+              Explore the words through tours of thoosdfjkl
+            </a>
+            <a rv-on-click="widget.showOnboarding | preventDefault" href="#" class="col-xs-4 col third">
+              <strong>Signup</strong>
+              Get involved by making an account and beginging to add your own tours and places. 
+            </a>
+          </nav>
+        </div>
       </div>
     </div>
   </div>

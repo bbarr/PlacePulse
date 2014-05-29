@@ -6,11 +6,27 @@ module.exports = asWidget('onboarding', function(hub) {
   var widget = this
 
   widget.template('/features/onboarding/widgets/modal/template.html')
+  widget.on('installed', function() {
+    widget.start().hide()
+    widget.on('change:visible', function() {
+      if (!widget.get('visible')) {
+        hub.trigger('safeShowCategories')
+      }
+    })
+  })
 
   widget.user = new Backbone.Model
 
-  hub.on('showOnboarding', widget.start, widget)
-  hub.on('authenticationChanged', widget.stop, widget)
+  hub.on('showOnboarding', widget.show, widget)
+  hub.on('authenticationChanged', widget.hide, widget)
+  hub.on('showSignup', function() {
+    widget.show()
+    widget.set('forLogin', false)
+  })
+  hub.on('showLogin', function() {
+    widget.show()
+    widget.set('forLogin', true)
+  })
 
   widget.on('change:forLogin', function() {
     if (widget.get('forLogin')) {

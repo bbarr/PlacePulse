@@ -6,7 +6,6 @@ module.exports = asWidget('filters', function(hub) {
   widget
     .template('/features/filters/widgets/sidebar/template.html')
     .on('installed', function() {
-      widget.set('list', 'tours')
       widget.start().hide()
     })
 
@@ -22,6 +21,9 @@ module.exports = asWidget('filters', function(hub) {
 
   hub.on('showFilters', function() { widget.show() })
   hub.on('hideFilters', function() { widget.hide() })
+  hub.on('safeShowCategories', function() {
+    if (!widget.get('list')) hub.trigger('showCategories')
+  })
   hub.on('showCategories', function() {
     widget.show()
     widget.showCategories()

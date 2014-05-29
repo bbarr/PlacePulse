@@ -820,3 +820,73 @@ li.list-place {
   display: inline-block;
   margin-left: 20px;
 }
+
+#welcome {
+
+  .modal-dialog {
+    /*background: url('/img/body_bg.jpg') 0 0 no-repeat;*/
+    margin-top: 100px;
+  }
+  .modal-content {
+    background: rgba(255, 255, 255, .9);
+    padding: 0;
+  }
+  .modal-body {
+    padding: 20px;
+    font-size: 20px;
+  }
+  .close {
+    z-index: 10;
+    top: -4px;
+    right: 2px;
+  }
+  .top > div {
+    overflow: auto;
+    color: $silver;
+    padding: 10px;
+    color: $nevada;
+    font-size: 18px;
+    img {
+      float: right;
+      margin-left: 40px;
+    }
+    h2 {
+      color: $flamingo;
+      small {
+        color: $nevada;
+        display: block;
+      }
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+    }
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .blocky-nav {
+    a {
+      text-transform: none;
+      line-height: 20px;
+      padding: 20px 10px 0;
+      height: 180px;
+      font-size: 16px;
+      text-align: center;
+      strong {
+        text-transform: uppercase;
+        display: block;
+        font-size: 26px;
+        margin-bottom: 10px;
+      }
+      color: $white;
+      background: $hippie-blue-light;
+      &:hover {
+        cursor: pointer;
+        background: $hippie-blue;
+      }
+      &:last-child {
+        background: $flamingo;
+      }
+    }
+  }
+}

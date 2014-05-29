@@ -37,7 +37,7 @@ module.exports = asWidget('map', function(hub) {
     })
     widget.set('map', map)
 
-      var clusters = L.markerClusterGroup({
+    var clusters = L.markerClusterGroup({
       spiderfyOnMaxZoom: false,
       showCoverageOnHover: false,
       zoomToBoundsOnClick: false,
