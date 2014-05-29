@@ -1,0 +1,56 @@
+<div class="modal show" rv-as-class="widget:place:category.className" id="place-details">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
+        <i class="fa" rv-as-class="widget:place:category.icon"></i>
+        <h3>{ widget:place:name }</h3>
+      </div>
+      <div class="modal-body">
+        <div rv-show="widget:tab | eql details">
+          <div class="row">
+            <div class="col-xs-6 col-sm-4">
+              <img class="img-thumbnail" rv-src="widget:place:photo | foursquarePhoto | default http://placehold.it/200x200" />
+            </div>
+            <div class="col-xs-6 col-sm-8">
+              <div class="place-detail"><strong>Address:</strong><span>{ widget:place:location.street }</div>
+              <div class="place-detail"><strong>Hours:</strong><span rv-html="widget:place:hoursDisplay | asHours"></span></div>
+              <div class="place-detail"><strong>Phone:</strong><span>{ widget:place:phone }</span></div>
+              <div class="place-detail"><strong>Website:</strong><span>{ widget:place:website }</span></div>
+              <div class="place-detail" rv-show="widget:place:rating"><strong>Foursquare Rating:</strong><span>{ widget:place:rating }</span></div>
+            </div>
+            <div rv-show="widget:place:description" class="description col-xs-12">
+              <div class="well">
+                { widget:place:description }
+              </div>
+            </div>
+            <div rv-show="widget:place:tips" class="col-xs-12">
+              <div class="well">
+                <div rv-each-tip="widget:place:tips">
+                  { tip.text }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div rv-show="widget:tab | eql description">
+          description
+        </div>
+        <div rv-show="widget:tab | eql history">
+          history
+        </div>
+        <div rv-show="widget:tab | eql events">
+          events
+        </div>
+      </div>
+      <div class="modal-footer">
+        <nav class="blocky-nav">
+          <a href="#" rv-class-active="widget:tab | eql details" rv-on-click="widget.showDetails | preventDefault">Details</a>
+          <a href="#" rv-class-active="widget:tab | eql description" rv-on-click="widget.showDescription | preventDefault">Description</a>
+          <a href="#" rv-class-active="widget:tab | eql history" rv-on-click="widget.showHistory | preventDefault">History</a>
+          <a href="#" rv-class-active="widget:tab | eql events" rv-on-click="widget.showEvents | preventDefault">Events</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
