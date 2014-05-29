@@ -3,20 +3,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" rv-on-click="widget.hide | preventDefault" class="close">&times;</button>
-        <ul class="nav nav-tabs">
-          <li rv-class-active="widget:pane | eql tours">
-            <a rv-on-click="widget.showTours | preventDefault" href="#">Your Tours</a>
-          </li>
-          <li rv-class-active="widget:pane | eql places">
-            <a rv-on-click="widget.showPlaces | preventDefault" href="#">Suggest a Place</a>
-          </li>
-          <li rv-class-active="widget:pane | eql profile">
-            <a rv-on-click="widget.showProfile | preventDefault" href="#">Edit Profile</a>
-          </li>
-          <!--
-          <li rv-class-active="widget:pane | eql admin"><a rv-on-click="widget.showAdmin | preventDefault" href="#">Admin</a></li>
-          -->
-        </ul>
+        <nav class="blocky-nav">
+          <a rv-class-active="widget:pane | eql tours" rv-on-click="widget.showTours | preventDefault" href="#">Your Tours</a>
+          <a rv-class-active="widget:pane | eql places" rv-on-click="widget.showPlaces | preventDefault" href="#">Suggest a Place</a>
+          <a rv-class-active="widget:pane | eql profile" rv-on-click="widget.showProfile | preventDefault" href="#">Edit Profile</a>
+        <nav>
       </div>
       <div class="modal-body">
         <div class="content">

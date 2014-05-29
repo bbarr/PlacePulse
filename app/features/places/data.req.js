@@ -16,8 +16,19 @@ var places = {
   current: [],
 
   save: function(place) {
-    $.post(hub.API_ROOT + '/places', place, function() {
-      hub.trigger('placeSaved')
+
+    var isNew = !place._id
+    var url = hub.API_ROOT + '/places'
+    if (!isNew) url += '/' + place._id
+
+    $.ajax({
+      url: url,
+      type: (isNew ? 'POST' : 'PUT'),
+      contentType: 'application/json',
+      data: JSON.stringify(place), 
+      success: function() {
+        hub.trigger('placeSaved')
+      }
     })
   },
 
@@ -45,7 +56,7 @@ var places = {
         if (ps.length === 50) fetch(i + 1)
         else {
           places.current = _places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
-          hub.trigger('placesLoaded', places.current.map(decorateCategory).filter(function(p) { return p.get('category') }))
+          hub.trigger('placesLoaded', places.current.map(decorateCategory).filter(function(p) { return p.get('category') && p.get('location') }))
         }
       })
     }

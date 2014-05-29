@@ -1,4 +1,5 @@
 <form rv-on-submit="widget.update | preventDefault">
+  <div rv-show="widget:flash" class="alert" rv-as-class="widget:flash.type">{ widget:flash.msg }</div>
   <div class="form-group">
     <div class="row">
       <div class="col-xs-6">
@@ -13,9 +14,7 @@
     <input placeholder="Email" type="text" class="form-control input-lg" rv-value="widget:user:email" />
   </div>
   <div class="form-group">
-    <input placeholder="Password" type="text" class="form-control input-lg" rv-value="widget:user:password" />
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary">Update</button> 
+    <a id="password-reset" href="#" rv-on-click="widget.resetPassword | preventDefault">Reset Password</a>
   </div>
 </form>

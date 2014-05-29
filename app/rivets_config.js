@@ -9,6 +9,12 @@ rivets.formatters.foursquarePhoto = function(photo) {
   return photo.prefix + '200x200' + photo.suffix
 }
 
+rivets.formatters.phoneAndStreet = function(place) {
+  var street = place.get('location').street
+  var phone = place.get('phone')
+  return phone ? (phone + ' - ' + street) : street
+}
+
 rivets.adapters['.'] = {
   subscribe: function(obj, keypath, callback) { },
   unsubscribe: function(obj, keypath, callback) { },

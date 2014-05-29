@@ -15,8 +15,10 @@
         </div>
         <div class="form-group">
           <select placeholder="Category" class="form-control input-lg" rv-value="widget:place:category">
-            <option selected disabled value="">Category</option>
-            <option rv-each-category="widget:categories">{ category.name }</option>
+            <option selected disabled value=""></option>
+            <optgroup rv-each-category="widget:categories" rv-label="category.name">
+              <option rv-each-sub="category.subCategories" rv-value="sub.id" rv-text="sub.label"></option>
+            </optgroup>
           </select>
         </div>
       </form>

@@ -688,6 +688,14 @@ li.list-place {
 }
 
 #menu {
+  .modal-header {
+    background: $concrete;
+    overflow: auto;
+    padding: 0;
+    a {
+      line-height: 40px;
+    }
+  }
   .content {
     .modal-footer {
       padding: 15px 15px 0 15px;
@@ -806,4 +814,9 @@ li.list-place {
       }
     }
   }
+}
+
+#password-reset {
+  display: inline-block;
+  margin-left: 20px;
 }

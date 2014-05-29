@@ -6962,6 +6962,12 @@ li.list-place {
     background: yellow;
     border: 1px solid #ccc; }
 
+#menu .modal-header {
+  background: #f3f3f3;
+  overflow: auto;
+  padding: 0; }
+  #menu .modal-header a {
+    line-height: 40px; }
 #menu .content .modal-footer {
   padding: 15px 15px 0 15px; }
 
@@ -7047,3 +7053,7 @@ li.list-place {
   background: #f3f3f3; }
   #place-details .modal-footer .blocky-nav a {
     line-height: 40px; }
+
+#password-reset {
+  display: inline-block;
+  margin-left: 20px; }
