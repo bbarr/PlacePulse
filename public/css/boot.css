@@ -6732,8 +6732,7 @@ li.list-place {
     visibility: hidden;
     color: #619bae;
     background: transparent;
-    border: none;
-    display: none; }
+    border: none; }
   li.list-place:hover .addToList {
     visibility: visible; }
   li.list-place p.index {
