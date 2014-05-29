@@ -11,9 +11,15 @@ module.exports = asWidget('list-picker', function(hub) {
     hub.trigger('loadMyTours')
   })
 
+  widget.create = function() {
+    hub.trigger('createNewTour')
+    widget.hide()
+  }
+
   widget.pick = function(_, _, binding) {
     var tour = binding.view.models.tour
     hub.trigger('addToTour', tour, place)
+    widget.hide()
   }
 
   hub.on('myToursLoaded', function(tours) {
@@ -31,7 +37,6 @@ module.exports = asWidget('list-picker', function(hub) {
   // refactor
   var place
   hub.on('showListPicker', function(p, el) {
-    hub.trigger('placeSelected', p)
     place = p
     var pos = $(el).parents('li').offset()
     pos.left -= 210

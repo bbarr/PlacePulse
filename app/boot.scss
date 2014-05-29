@@ -189,6 +189,33 @@ input, textarea {
   }
 }
 
+#tours-admin {
+  .well {
+    margin-top: 20px;
+  }
+  .back {
+    display: block;
+    margin-bottom: 10px;
+  }
+  strong {
+    font-size: 20px;
+  }
+}
+
+.admin-tour-item {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  &:hover {
+    cursor: pointer;
+    background: $concrete;
+  }
+  border-bottom: 1px solid $silver;
+  &:last-child {
+    border: none;
+  }
+}
+
 #list-picker {
   position: absolute;
   width: 200px;
@@ -196,8 +223,23 @@ input, textarea {
   border: 1px solid $silver;
   background: #fff;
   padding: 10px;
-  strong {
+  li {
     border-bottom: 1px solid $silver;
+    padding: 6px 4px;
+    margin: 4px 0 0;
+    background: #fff;
+    &:hover {
+      background: $concrete;
+      cursor: pointer;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  strong {
+    i {
+      text-decoration: none;
+    }
   }
   .arrow {
     position: absolute;
@@ -234,7 +276,7 @@ input, textarea {
     padding: 10px 10px 0px 10px;
   }
   .list-header {
-    padding: 20px 0 0;
+    padding: 10px 0;
     text-align: center;
     h3 {
       text-transform: capitalize;
@@ -263,10 +305,11 @@ li.list-place {
   border-top: 1px solid #E6E6E6;
   margin: 6px 0;
   transition: all .15s;
+  position: relative;
   &:hover {
     background: $hippie-blue-light;
     color: $white;
-    cursor: pointer;
+    cursor: default;
   }
 
   &.active {
@@ -291,16 +334,21 @@ li.list-place {
   }
 
   .addToList {
-    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    margin-top: -20px;
+    font-size: 20px;
     line-height: 14px;
     padding: 3px;
     visibility: hidden;
-    color: $hippie-blue;
+    color: $white;
     background: transparent;
     border: none;
   }
   &:hover .addToList {
     visibility: visible;
+    cursor: pointer;
   }
 
   p.index {

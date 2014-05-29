@@ -74,6 +74,7 @@ module.exports = asWidget('tours-admin', function(hub) {
 
   widget.unselect = function() {
     widget.set('selected', null)
+    widget.set('flash', false)
   }
 
   widget.on('change:visible', function() {
@@ -88,6 +89,7 @@ module.exports = asWidget('tours-admin', function(hub) {
     hub.trigger('admin:pane', 'tours')
     myTour.places.push(place.attributes)
     widget.setTour(myTour)
+    widget.set('flash', false)
   })
 
   hub.on('myToursLoaded', function(tours) {
@@ -103,14 +105,14 @@ module.exports = asWidget('tours-admin', function(hub) {
     newTours.push(saved)
     widget.set('tours', newTours) 
     widget.set('flash', {
-      msg: 'Tour created!',
+      msg: 'Tour saved!',
       type: 'alert-success'
     })
   })
 
   hub.on('tourSaveFailed', function() {
     widget.set('flash', {
-      msg: 'Sorry, unable to create tour.',
+      msg: 'Sorry, unable to save tour.',
       type: 'alert-danger'
     })
   })
@@ -119,6 +121,12 @@ module.exports = asWidget('tours-admin', function(hub) {
     var tours = widget.get('tours')
     widget.set('tours', [])
     widget.set('tours', _.remove(tours, { _id: destroyed._id }))
+  })
+
+  hub.on('createNewTour', function() {
+    hub.trigger('showMenu')
+    hub.trigger('admin:pane', 'tours')
+    widget.create()
   })
 
   hub.trigger('myToursNeeded')

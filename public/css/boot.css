@@ -6650,6 +6650,25 @@ input, textarea {
       background: #f37130;
       color: #fff; }
 
+#tours-admin .well {
+  margin-top: 20px; }
+#tours-admin .back {
+  display: block;
+  margin-bottom: 10px; }
+#tours-admin strong {
+  font-size: 20px; }
+
+.admin-tour-item {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #b2b3b6; }
+  .admin-tour-item:hover {
+    cursor: pointer;
+    background: #f3f3f3; }
+  .admin-tour-item:last-child {
+    border: none; }
+
 #list-picker {
   position: absolute;
   width: 200px;
@@ -6657,8 +6676,18 @@ input, textarea {
   border: 1px solid #b2b3b6;
   background: #fff;
   padding: 10px; }
-  #list-picker strong {
-    border-bottom: 1px solid #b2b3b6; }
+  #list-picker li {
+    border-bottom: 1px solid #b2b3b6;
+    padding: 6px 4px;
+    margin: 4px 0 0;
+    background: #fff; }
+    #list-picker li:hover {
+      background: #f3f3f3;
+      cursor: pointer; }
+    #list-picker li:last-child {
+      border: none; }
+  #list-picker strong i {
+    text-decoration: none; }
   #list-picker .arrow {
     position: absolute;
     right: -10px;
@@ -6687,7 +6716,7 @@ input, textarea {
   #places-list i {
     padding: 10px 10px 0px 10px; }
   #places-list .list-header {
-    padding: 20px 0 0;
+    padding: 10px 0;
     text-align: center; }
     #places-list .list-header h3 {
       text-transform: capitalize; }
@@ -6708,11 +6737,12 @@ li.list-place {
   border-bottom: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
   margin: 6px 0;
-  transition: all 0.15s; }
+  transition: all 0.15s;
+  position: relative; }
   li.list-place:hover {
     background: #7cadbc;
     color: #fff;
-    cursor: pointer; }
+    cursor: default; }
   li.list-place.active {
     background: #619bae;
     color: #fff; }
@@ -6726,15 +6756,20 @@ li.list-place {
     li.list-place p:last-child {
       padding: 0; }
   li.list-place .addToList {
-    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    margin-top: -20px;
+    font-size: 20px;
     line-height: 14px;
     padding: 3px;
     visibility: hidden;
-    color: #619bae;
+    color: #fff;
     background: transparent;
     border: none; }
   li.list-place:hover .addToList {
-    visibility: visible; }
+    visibility: visible;
+    cursor: pointer; }
   li.list-place p.index {
     float: left;
     line-height: 100%;

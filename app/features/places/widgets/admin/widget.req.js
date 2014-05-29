@@ -39,6 +39,11 @@ module.exports = asWidget('places-admin', function(hub) {
     }
   })
 
+  widget.reset = function() {
+    widget.set('saved', false)
+    widget.setPlace(new Backbone.Model)
+  }
+
   widget.setPlace = function(place) {
     widget.set('saved', false)
     widget.set('place', place)

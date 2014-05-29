@@ -4,6 +4,11 @@ var $ = require('jquery')
 window.jQuery = $
 require('./bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker')
 
+rivets.formatters.isEmpty = function(a) { 
+  if (a) return !a.length
+  else return true
+}
+
 rivets.formatters.foursquarePhoto = function(photo) {
   if (!photo || photo.prefix) return ''
   return photo.prefix + '200x200' + photo.suffix

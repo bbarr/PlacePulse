@@ -28,6 +28,7 @@ gulp.task('buildCSS', function () {
   gulp.src([ './app/boot.scss' ])
     .pipe(sass())
     .pipe(gulp.dest('./public/css'))
+    .pipe(reload())
 });
 
 gulp.task('buildHTML', function() {

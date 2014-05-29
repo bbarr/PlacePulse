@@ -1,12 +1,13 @@
-<p>Can't find a place you are looking for? Give us whatever details you can, and we will work to add it into the system!</p>
+<p class="well">Can't find a place you are looking for? Give us whatever details you can, and we will work to add it into the system!</p>
 <div class="row">
-  <div rv-show="widget:saved">
-    Thanks for submitting a new place! We will review the information and then add it to our place library soon.
+  <div class="alert alert-success" rv-show="widget:saved">
+    Thanks for submitting a new place! We will review the information and then add it to our place library soon. 
+    <br />
+    <a href="#" rv-on-click="widget.reset | preventDefault">Suggest another place</a>
   </div>
   <div rv-hide="widget:saved">
     <div class="col-xs-6">
       <form rv-on-submit="widget.save | preventDefault">
-        <button type="submit">Save</button>
         <div class="form-group">
           <input placeholder="Name" class="form-control input-lg" type="text" rv-value="widget:place:name">
         </div>
@@ -30,6 +31,9 @@
       <div class="form-group">
         <textarea class="form-control input-lg" placeholder="History" rv-value="widget:place:history"></textarea>
       </div>
+    </div>
+    <div class="modal-footer col-xs-12"> 
+      <a href="#" rv-on-click="widget.save | preventDefault" class="btn btn-primary"> SAVE</a>
     </div>
   </div>
 </div>

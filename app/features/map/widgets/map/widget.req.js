@@ -137,6 +137,10 @@ module.exports = asWidget('map', function(hub) {
 
       var clusterLayers = clusters._featureGroup.getLayers().filter(isCluster)
       var clusterLayer = _.find(clusterLayers, _.partial(containsMarker, marker))
+
+      // TODO wtf
+      if (!clusterLayer) return
+
       var clusteredMarkers = clusterLayer.getAllChildMarkers()
 
       highlightMarker(clusterLayer)

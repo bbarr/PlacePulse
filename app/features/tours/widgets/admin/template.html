@@ -1,17 +1,15 @@
-<div class="row">
-  <div rv-show="widget:flash" class="alert" rv-as-class="widget:flash.type">{ widget:flash.msg }</div>
+<div class="row" id="tours-admin">
+  <div rv-show="widget:flash" class="col-xs-12 alert" rv-as-class="widget:flash.type">{ widget:flash.msg }</div>
   <div rv-hide="widget:selected" class="col-xs-12">
-    <button rv-on-click="widget.create">Create a tour</button>
+    <strong>Your Tours</strong> <a href="#" rv-on-click="widget.create | preventDefault"><i class="fa fa-plus"></i></a>
     <ul>
-      <li rv-on-click="widget.select" rv-each-tour="widget:tours">
+      <li class="admin-tour-item" rv-on-click="widget.select" rv-each-tour="widget:tours">
         { tour.name }
       </li>
     </ul>
   </div>
   <div rv-show="widget:selected">
     <div class="col-xs-6">
-      <a href="#" rv-on-click="widget.unselect | preventDefault"><< Back to list of tours</a>
-      <br />
       <form>
         <div class="form-group">
           <input placeholder="Name" class="form-control" type="text" rv-value="widget:selected:name">
@@ -31,10 +29,14 @@
         <span>{ place:name }</span>
         <textarea rv-value="place:notes" class="form-control" placeholder="Notes"></textarea>
       </div>
+      <p rv-if="widget:selected:places | isEmpty" class="well">
+        No pleaces here yet. Browse around our map and add them from the list.
+      </p>
     </div>
     <div class="modal-footer col-xs-12"> 
+      <a href="#" class="btn btn-link" rv-on-click="widget.unselect | preventDefault">Back to list</a>
       <a href="#" rv-on-click="widget.save | preventDefault" class="btn btn-primary"> SAVE</a>
-      <a href="#"  class="btn btn-danger" rv-on-click="widget.destroy | preventDefault"> DELETE</a>
+      <a href="#" class="btn btn-danger" rv-on-click="widget.destroy | preventDefault" rv-if="widget:selected:_id"> DELETE</a>
     </div>
   </div>
 </div>

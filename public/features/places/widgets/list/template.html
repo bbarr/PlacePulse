@@ -7,12 +7,13 @@
     </h3>
   </div>
 	<ul>
-	  <li rv-as-class="place:category.className" rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected" rv-on-click="widget.select | preventDefault">
-	    <div class="details">
-	      <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i> Add to list</button>
+	  <li rv-as-class="place:category.className" rv-autoscroll="place:selected" class="list-place" rv-each-place="widget:places" rv-class-active="place:selected">
+	    <button rv-on-click="widget.addToList | preventDefault" class="addToList"><i class="fa fa-plus"></i></button>
+	    <div class="details" rv-on-click="widget.select | preventDefault">
         <h4>{ place:name }</h4>
         <p>{ place:categoryLabels | first | last }</p>
         <p>{ place | phoneAndStreet }</p>
+        <p class="well" rv-show="place:description" rv-text="place:description"></p>
 	    </div>
 	  </li>
 	</ul>
