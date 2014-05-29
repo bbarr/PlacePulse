@@ -64,7 +64,7 @@ module.exports = asWidget('tours-admin', function(hub) {
   }
 
   widget.save = function() {
-    hub.trigger('saveTour', widget.get('selected'), widget.unselect.bind(widget))
+    hub.trigger('saveTour', widget.get('selected'))
   }
 
   widget.destroy = function() {
@@ -88,7 +88,21 @@ module.exports = asWidget('tours-admin', function(hub) {
     widget.set('tours', tours)
   })
 
-  hub.on('tourCreated tourDestroyed', hub.trigger.bind(hub, 'loadMyTours'))
+  hub.on('tourSaved', function(saved) {
+    var tours = widget.get('tours')
+    widget.set('tours', [])
+    var newTours = tours.filter(function(tour) {
+      return tour._id !== saved._id
+    })
+    newTours.push(saved)
+    widget.set('tours', newTours) 
+  })
+
+  hub.on('tourDestroyed', function(destroyed) {
+    var tours = widget.get('tours')
+    widget.set('tours', [])
+    widget.set('tours', _.remove(tours, { _id: destroyed._id }))
+  })
 
   hub.trigger('myToursNeeded')
 })

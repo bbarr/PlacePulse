@@ -29,8 +29,7 @@ $salem: #0C6F4A;
 $valencia: #D33A35;
 $copper: #C97933;
 $ripe-lemon: #ecdf0d;
-$money-green: #216C2A
-
+$money-green: #216C2A;
 
 $automotive: $muesli;
 $community: $nevada;
@@ -58,6 +57,29 @@ body .leaflet-container {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+.loader {
+  display: none;
+}
+
+.loading .loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, .4);
+  display: block;
+  z-index: 5;
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    font-size: 20px;
+    z-index: 5000;
+  }
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
@@ -203,6 +225,11 @@ input, textarea {
   width: $sidebar-width;
   background: $concrete;
   border-left: 1px solid $silver;
+  &.loading {
+    .list-place {
+      display: none;
+    }
+  }
   i {
     padding: 10px 10px 0px 10px;
   }
@@ -231,7 +258,7 @@ ul {
 }
 li.list-place {
 
-  background: #fdfdfd;
+  background: #fff;
   border-bottom: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
   margin: 6px 0;
@@ -353,6 +380,12 @@ li.list-place {
   .listing {
     border-right: 5px solid $food;
   }
+  &.tp-marker .inner {
+    background: $food;
+  }
+  &.tp-marker.tp-active, &.tp-marker:hover {
+    background: $food;
+  }
 }
 
 .services {
@@ -373,6 +406,9 @@ li.list-place {
   }
   .tooltip-listing i {
     color: $automotive;
+  }
+  &.tp-marker .inner {
+    background: $automotive;
   }
 }
 
@@ -575,9 +611,36 @@ li.list-place {
       font-size:30px;
       margin-right: 10px;
     }
+  }
   .modal-body {
-    img{
-       float:left;
+    min-height: 250px;
+    .place-detail {
+      margin-bottom: 6px;
+      strong {
+        float: left;
+      }
+      span {
+        display: block;
+        padding-left: 80px;
+      }
+    }
+    .description {
+      margin-top: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    img {
+     float: left;
+    }
+  }
+  .modal-footer {
+    padding: 0;
+    overflow: auto;
+    background: $concrete;
+    .blocky-nav {
+      a {
+        line-height: 40px;
       }
     }
   }

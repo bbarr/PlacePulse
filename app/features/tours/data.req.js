@@ -26,8 +26,8 @@ var tours = {
       type: isNew ? 'POST' : 'PUT',
       contentType: 'application/json',
       data: JSON.stringify(raw), 
-      success: function() {
-        hub.trigger('tourCreated')
+      success: function(saved) {
+        hub.trigger('tourSaved', isNew ? saved : raw)
         if (cb) cb()
       }
     })
@@ -38,7 +38,7 @@ var tours = {
       url: hub.API_ROOT + '/tours/' + tour.get('_id'),
       type: 'DELETE',
       success: function() {
-        hub.trigger('tourDestroyed')
+        hub.trigger('tourDestroyed', tour)
         if (cb) cb()
       }
     })
@@ -47,5 +47,5 @@ var tours = {
 
 hub.on('toursNeeded', tours.fetch, tours)
 hub.on('myToursNeeded', tours.fetchMine, tours)
-hub.on('saveTours', tours.save, tours)
+hub.on('saveTour', tours.save, tours)
 hub.on('destroyTour', tours.destroy, tours)

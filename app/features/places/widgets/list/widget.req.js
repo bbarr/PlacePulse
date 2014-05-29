@@ -28,8 +28,10 @@ module.exports = asWidget('places-list', function(hub) {
   }
 
   hub.on('placesLoaded', function(places) {
+    console.log('places are loaded')
     widget.set('places', [])
     widget.set('places', places)
+    widget.loaded()
   })
 
   hub.on('filterSelected', function(filters) {
@@ -52,4 +54,8 @@ module.exports = asWidget('places-list', function(hub) {
   })
 
   hub.trigger('findPlaces')
+  hub.on('placesLoading', function() {
+    console.log('places are loading')
+    widget.loading()
+  })
 })

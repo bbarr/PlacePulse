@@ -5,7 +5,7 @@ window.jQuery = $
 require('./bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker')
 
 rivets.formatters.foursquarePhoto = function(photo) {
-  console.log('photo ', photo)
+  if (!photo || photo.prefix) return ''
   return photo.prefix + '200x200' + photo.suffix
 }
 
@@ -21,13 +21,18 @@ rivets.adapters['.'] = {
   }
 }
 
+rivets.formatters.asHours = function(val) {
+  if (!val) return ''
+  return val.replace(/;/g, '<br />')
+}
+
 rivets.binders.position = function(el, pos) {
   el.style.left = pos.x + 'px'
   el.style.top = pos.y + 'px'
 }
 
 rivets.binders['*-as-class'] = function(el, val) {
-  var key = this.args[0] || ''
+  var key = this.args[0] || 'anon'
   var current = el.getAttribute('data-' + key) || ''
   $(el).removeClass(current).addClass(val)
   el.setAttribute('data-' + key, val)
@@ -55,7 +60,9 @@ rivets.adapters[':'] = {
   }
 }
 
+// TODO
 rivets.binders['broadcast-click'] = function(el) {
+  return
   $(el).on('click', function(e) {
     hub.trigger('bodyClicked', e)
   })

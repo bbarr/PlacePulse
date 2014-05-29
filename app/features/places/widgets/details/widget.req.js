@@ -11,7 +11,15 @@ asWidget('place-details', function(hub) {
 
   hub.on('showDetails', function(place) {
     widget.set('place', place)
-    hub.trigger('getCategoryForPlace', place, place.set.bind(place, 'category'))
+    widget.showDetails()
     widget.show()
   })
+
+  function changeTab(name) { 
+    return function() { widget.set('tab', name) }
+  }
+  widget.showDetails = changeTab('details')
+  widget.showDescription = changeTab('description')
+  widget.showHistory = changeTab('history')
+  widget.showEvents = changeTab('events')
 })

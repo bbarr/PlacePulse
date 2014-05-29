@@ -6,6 +6,11 @@ var _ = require('lodash')
 
 var Place = Backbone.Model.extend({ })
 
+function decorateCategory(place) {
+  hub.trigger('getCategoryForPlace', place, place.set.bind(place, 'category'))
+  return place
+}
+
 var places = {
 
   current: [],
@@ -27,6 +32,9 @@ var places = {
       }
     } else return
 
+    hub.trigger('placesLoaded', [])
+    hub.trigger('placesLoading')
+
     url += '&perPage=50'
     url += '&page=1'
 
@@ -34,11 +42,10 @@ var places = {
     function fetch(i) {
       $.get(url.replace(/page=\d+/, 'page=' + i), function(ps) {
         _places = _places.concat(ps)
-        console.log(ps.length)
         if (ps.length === 50) fetch(i + 1)
         else {
           places.current = _places.map(function(p, i) { return new Place(_.extend(p, { index: i })) })
-          hub.trigger('placesLoaded', places.current)
+          hub.trigger('placesLoaded', places.current.map(decorateCategory).filter(function(p) { return p.get('category') }))
         }
       })
     }

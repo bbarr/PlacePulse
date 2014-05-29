@@ -41,6 +41,7 @@ module.exports = asWidget('map', function(hub) {
       spiderfyOnMaxZoom: false, 
       showCoverageOnHover: false, 
       zoomToBoundsOnClick: false,
+      singleMarkerMode: false,
       iconCreateFunction: function(cluster) {
         return L.divIcon({ 
           className: 'tp-marker', 
@@ -58,17 +59,14 @@ module.exports = asWidget('map', function(hub) {
     clusters.addTo(widget.get('map'))
     widget.set('clusters', clusters)
 
-    tooltip = L.popup({ offset: [ 0, -20 ], className: 'tp-map-tooltip', closeButton: false, width: 300, maxHeight: 300 })
-    tooltip.on('click', function(e) {
-      debugger
-    })
+    tooltip = L.popup({ autoPanPadding: [ 100, 100 ], offset: [ 0, -20 ], className: 'tp-map-tooltip', closeButton: false, width: 300, maxHeight: 300 })
   }
 
   function buildMarker(place) {
     return L.marker(buildLatLng(place), { 
       icon: L.divIcon({ 
-        className: 'tp-marker', 
-        html: '<div class="inner"></div>',
+        className: 'tp-marker ' + place.get('category').className, 
+        html: '<div class="inner">1</div>',
         iconSize: [ 40, 40 ]
       }) 
     })
@@ -119,7 +117,7 @@ module.exports = asWidget('map', function(hub) {
       openDetails: function(_, _, binding) {
         var place = binding.view.models.place
         hub.trigger('showDetails', place)
-        if (isCluster(marker)) hub.trigger('placeSelected', place)
+        hub.trigger('placeSelected', place)
       }
     })
     tooltip.setContent(el)
@@ -183,5 +181,11 @@ module.exports = asWidget('map', function(hub) {
     unhighlightMarkers()
   })
 
+  hub.on('placesLoading', function() {
+    unselectMarker()
+    widget.loading()
+  })
+
+  hub.on('placesLoaded', widget.loaded, widget)
 })
 

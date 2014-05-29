@@ -22,6 +22,14 @@ module.exports = asWidget('filters', function(hub) {
 
   hub.on('showFilters', function() { widget.show() })
   hub.on('hideFilters', function() { widget.hide() })
+  hub.on('showCategories', function() {
+    widget.show()
+    widget.showCategories()
+  })
+  hub.on('showTours', function() {
+    widget.show()
+    widget.showTours()
+  })
 
   widget.show = function() {
     widget.set('visible', true)
