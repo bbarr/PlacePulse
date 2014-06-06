@@ -1,4 +1,5 @@
 var asWidget = require('widget')
+var _ = require('lodash')
 
 module.exports = asWidget('filters', function(hub) {
   var widget = this
@@ -57,7 +58,20 @@ module.exports = asWidget('filters', function(hub) {
 
   hub.on('filtersLoaded', function(filters) {
     widget.set('categories', filters.categories)
+    widget.set('tours', [])
     widget.set('tours', filters.tours)
+  })
+
+  hub.on('myToursLoaded', function(myTours) {
+    if (!myTours.length) return
+    if (widget.get('tours')) go()
+    else widget.once('change:tours', go)
+    function go() {
+      var userId = myTours[0].userId
+      var fresh = widget.get('tours').filter(function(t) { return t.userId !== userId })
+      widget.set('tours', [])
+      widget.set('tours', myTours.map(function(mt) { mt.mine = true; return mt }).concat(fresh))
+    }
   })
 
   hub.on('filterSelected', widget.hide, widget)

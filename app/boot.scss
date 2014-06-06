@@ -343,9 +343,8 @@ li.list-place {
 
   .addToList {
     position: absolute;
-    top: 50%;
+    top: 0px;
     right: -6px;
-    margin-top: -20px;
     font-size: 20px;
     line-height: 14px;
     padding: 3px;
@@ -786,9 +785,20 @@ li.list-place {
   .filter-list {
     background: $concrete;
     li {
+      .lock { 
+        text-align: center;
+        display: none; 
+        padding: 10px 0 0;
+        margin: 0;
+      }
+      &.mine {
+        .lock { display: block; }
+      }
+      .listing {
+        padding: 0 10px;
+      }
       border-bottom: 1px solid $silver;
       background: $white;
-      padding: 0 0 0 10px;
       transition: all .15s;
       &:hover {
         cursor: pointer;
@@ -807,6 +817,14 @@ li.list-place {
       }
     }
   }
+}
+
+.well {
+  padding: 10px;
+}
+
+li:hover .well {
+  color: $hippie-blue;
 }
 
 #cluster-tooltip {

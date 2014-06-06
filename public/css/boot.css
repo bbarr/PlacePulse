@@ -6762,9 +6762,8 @@ li.list-place {
       padding: 0; }
   li.list-place .addToList {
     position: absolute;
-    top: 50%;
+    top: 0px;
     right: -6px;
-    margin-top: -20px;
     font-size: 20px;
     line-height: 14px;
     padding: 3px;
@@ -7036,8 +7035,16 @@ li.list-place {
     #filters .filter-list li {
       border-bottom: 1px solid #b2b3b6;
       background: #fff;
-      padding: 0 0 0 10px;
       transition: all 0.15s; }
+      #filters .filter-list li .lock {
+        text-align: center;
+        display: none;
+        padding: 10px 0 0;
+        margin: 0; }
+      #filters .filter-list li.mine .lock {
+        display: block; }
+      #filters .filter-list li .listing {
+        padding: 0 10px; }
       #filters .filter-list li:hover {
         cursor: pointer;
         background: #7cadbc;
@@ -7050,6 +7057,12 @@ li.list-place {
         line-height: 40px;
         margin-left: 20px;
         text-transform: capitalize; }
+
+.well {
+  padding: 10px; }
+
+li:hover .well {
+  color: #619bae; }
 
 #cluster-tooltip {
   position: absolute;

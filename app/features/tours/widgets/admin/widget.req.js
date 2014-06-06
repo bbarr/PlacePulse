@@ -31,7 +31,7 @@ module.exports = asWidget('tours-admin', function(hub) {
 
   widget.create = function(seed) {
     var tour = { places: [] }
-    if (seed) {
+    if (seed && seed instanceof Backbone.Model) {
       tour.places.push(seed.attributes)
     }
     widget.setTour(tour)
@@ -106,7 +106,9 @@ module.exports = asWidget('tours-admin', function(hub) {
       return tour._id !== saved._id
     })
     newTours.push(saved)
-    widget.set('tours', newTours) 
+
+    hub.trigger('myToursLoaded', newTours)
+
     widget.set('flash', {
       msg: 'Tour saved!',
       type: 'alert-success'
@@ -122,8 +124,9 @@ module.exports = asWidget('tours-admin', function(hub) {
 
   hub.on('tourDestroyed', function(destroyed) {
     var tours = widget.get('tours')
+    var newTours = _.remove(tours, { _id: destroyed._id })
     widget.set('tours', [])
-    widget.set('tours', _.remove(tours, { _id: destroyed._id }))
+    hub.trigger('myToursLoaded', newTours)
   })
 
   hub.on('createNewTour', function(place) {

@@ -73,7 +73,6 @@ rivets.adapters[':'] = {
 
 // TODO
 rivets.binders['broadcast-click'] = function(el) {
-  return
   $(el).on('click', function(e) {
     hub.trigger('bodyClicked', e)
   })
