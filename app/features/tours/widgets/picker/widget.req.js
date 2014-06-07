@@ -43,4 +43,12 @@ module.exports = asWidget('list-picker', function(hub) {
     $(widget.get('el')).css(pos)
     widget.show()
   })
+
+  widget.onboard = function() {
+    hub.trigger('showOnboarding')
+  }
+
+  hub.on('authenticationChanged', function(user) {
+    widget.set('loggedIn', !!user)
+  })
 })

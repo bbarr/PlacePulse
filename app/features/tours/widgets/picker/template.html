@@ -1,8 +1,13 @@
 <i class="fa fa-caret-right arrow"></i>
-<strong>
-  Choose a tour
-  <a href="#" rv-on-click="widget.create | preventDefault"><i class="fa fa-plus"></i></a>
-</strong>
-<ul>
-  <li rv-each-tour="widget:tours" rv-on-click="widget.pick | preventDefault">{ tour.name }</li>
-</ul>
+<div rv-show="widget:loggedIn">
+  <strong>
+    Choose a tour
+    <a href="#" rv-on-click="widget.create | preventDefault"><i class="fa fa-plus"></i></a>
+  </strong>
+  <ul>
+    <li rv-each-tour="widget:tours" rv-on-click="widget.pick | preventDefault">{ tour.name }</li>
+  </ul>
+</div>
+<div rv-hide="widget:loggedIn">
+  To add this place to your own tour: <br /><button rv-on-click="widget.onboard" class="btn btn-primary">Sign up/Log in</button>
+</div>
