@@ -6760,7 +6760,7 @@ li.list-place {
     padding: 0 0 10px; }
     li.list-place p:last-child {
       padding: 0; }
-  li.list-place .addToList {
+  li.list-place .addToList, li.list-place .editPlace {
     position: absolute;
     top: 0px;
     right: -6px;
@@ -6771,7 +6771,9 @@ li.list-place {
     color: #fff;
     background: transparent;
     border: none; }
-  li.list-place:hover .addToList {
+  li.list-place .editPlace {
+    top: 24px; }
+  li.list-place:hover .addToList, li.list-place:hover .editPlace {
     visibility: visible;
     cursor: pointer; }
   li.list-place p.index {

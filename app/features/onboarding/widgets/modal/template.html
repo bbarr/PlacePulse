@@ -6,6 +6,7 @@
         <h4 class="modal-title">{ widget:headline }</h4>
       </div>
       <div class="modal-body">
+        <p rv-if="widget:message" class="alert-warning alert">{ widget:message }</p>
         <form rv-on-submit="widget.submit | preventDefault">
           <div rv-hide="widget:forLogin">
             <div class="form-group">

@@ -1,9 +1,8 @@
-<p class="well">Can't find a place you are looking for? Give us whatever details you can, and we will work to add it into the system!</p>
+
+<p class="well">{ widget:welcome }</p>
 <div class="row">
   <div class="alert alert-success" rv-show="widget:saved">
-    Thanks for submitting a new place! We will review the information and then add it to our place library soon. 
-    <br />
-    <a href="#" rv-on-click="widget.reset | preventDefault">Suggest another place</a>
+    { widget:thanks }
   </div>
   <div rv-hide="widget:saved">
     <div class="col-xs-6">
@@ -25,9 +24,6 @@
       </form>
     </div>
     <div class="col-xs-6">
-      <div class="form-group">
-        <textarea class="form-control input-lg" placeholder="About" rv-value="widget:place:about"></textarea>
-      </div>
       <div class="form-group">
         <textarea class="form-control input-lg" placeholder="History" rv-value="widget:place:history"></textarea>
       </div>

@@ -17,7 +17,10 @@ module.exports = asWidget('onboarding', function(hub) {
 
   widget.user = new Backbone.Model
 
-  hub.on('showOnboarding', widget.show, widget)
+  hub.on('showOnboarding', function(msg) {
+    widget.set('message', msg || '')
+    widget.show()
+  })
   hub.on('authenticationChanged', widget.hide, widget)
   hub.on('showSignup', function() {
     widget.show()

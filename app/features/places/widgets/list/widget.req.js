@@ -27,6 +27,15 @@ module.exports = asWidget('places-list', function(hub) {
     hub.trigger('showListPicker', place, e.target)
   }
 
+  widget.editPlace = function(e, _, binding) {
+    if (widget.get('user')) {
+      var place = binding.view.models.place
+      hub.trigger('editPlace', place)
+    } else {
+      hub.trigger('showOnboarding', 'You must sign up/log in to edit a place.')
+    }
+  }
+
   hub.on('placesLoaded', function(places) {
     console.log('places are loaded')
     widget.set('places', [])
@@ -57,5 +66,9 @@ module.exports = asWidget('places-list', function(hub) {
   hub.on('placesLoading', function() {
     console.log('places are loading')
     widget.loading()
+  })
+
+  hub.on('authenticationChanged', function(user) {
+    widget.set('user', user)
   })
 })

@@ -341,7 +341,7 @@ li.list-place {
     }
   }
 
-  .addToList {
+  .addToList, .editPlace {
     position: absolute;
     top: 0px;
     right: -6px;
@@ -353,7 +353,11 @@ li.list-place {
     background: transparent;
     border: none;
   }
-  &:hover .addToList {
+  .editPlace {
+    top: 24px;
+  }
+  &:hover .addToList,
+  &:hover .editPlace {
     visibility: visible;
     cursor: pointer;
   }

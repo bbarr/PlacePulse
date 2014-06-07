@@ -11,6 +11,10 @@ module.exports = asWidget('menu', function(hub) {
     hub.trigger('admin:pane', this.get('pane'))
   })
 
+  hub.on('admin:pane', function(pane) {
+    widget.set('pane', pane)
+  })
+
   var setPane = function(name) { return widget.set.bind(widget, 'pane', name) }
   widget.showProfile = setPane('profile')
   widget.showPlaces = setPane('places')
