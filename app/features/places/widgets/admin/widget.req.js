@@ -26,6 +26,7 @@ module.exports = asWidget('places-admin', function(hub) {
       })
     })
 
+    if (!raw.factualId) delete raw.factualId
     hub.trigger('savePlace', raw)
   }
 
@@ -64,6 +65,7 @@ module.exports = asWidget('places-admin', function(hub) {
     hub.trigger('showMenu')
     hub.trigger('admin:pane', 'places')
     widget.setPlace(new Backbone.Model({
+      factualId: place.get('factualId'),
       name: place.get('name'),
       address: place.get('location').street,
       category: place.get('categoryIds')[0],
