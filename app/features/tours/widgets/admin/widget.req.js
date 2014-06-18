@@ -55,8 +55,20 @@ module.exports = asWidget('tours-admin', function(hub) {
   }
 
   widget.set('icons', [
-    { className: 'fa-cutlery' },
-    { className: 'fa-star' }
+    { className: 'fa-star' },
+    { className: 'map-icon-art-gallery' },
+    { className: 'map-icon-point-of-interest' },
+    { className: 'map-icon-park' },
+    { className: 'map-icon-food' },
+    { className: 'map-icon-restaurant' },
+    { className: 'map-icon-cafe' },
+    { className: 'map-icon-shopping-mall' },
+    { className: 'map-icon-diving' },
+    { className: 'map-icon-fishing' },
+    { className: 'map-icon-marina' },
+    { className: 'map-icon-bar' },
+    { className: 'map-icon-museum' },
+    { className: 'map-icon-health' }
   ].map(model))
 
   widget.selectIcon = function(_, _, binding) {
@@ -137,4 +149,3 @@ module.exports = asWidget('tours-admin', function(hub) {
 
   hub.trigger('myToursNeeded')
 })
-
