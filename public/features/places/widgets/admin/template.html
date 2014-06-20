@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
           <input placeholder="Street Address" class="form-control input-lg" type="text" rv-value="widget:place:address">
-          <input placeholder="Image URL" class="form-control input-lg" type="text" rv-value="widget:place:image">
+          <input placeholder="Image URL" class="form-control input-lg" type="text" rv-value="widget:place:photo">
             <p class="input_desc">Please enter the url for an associated image already online (must end in a .jpg or .png)</p>
         </div>
         <div class="form-group">
@@ -30,11 +30,11 @@
         <input placeholder="Phone" class="form-control input-lg" type="text" rv-value="widget:place:phone">
         <input placeholder="Website" class="form-control input-lg" type="text" rv-value="widget:place:website">
         <textarea class="form-control input-lg" placeholder="Description" rv-value="widget:place:description"></textarea>
-        <input name="seasonal" value="seasonal" type="checkbox"><span> Open Seasonally </span>
-        <input name="view" value="view" type="checkbox"><span> Has a View </span>
-        <input name="parking" value="parking" type="checkbox"><span> Parking Available </span><br/>
-        <input name="credit" value="credit" type="checkbox"><span> Accepts Credit Cards</span>
-        <input name="events" value="events" type="checkbox"><span> Offers Events or Classes</span>
+        <input name="seasonal" rv-value="widget:place:seasonal" type="checkbox"><span> Open Seasonally </span>
+        <input name="view" rv-value="widget:place:view" type="checkbox"><span> Has a View </span>
+        <input name="parking" rv-value="widget:place:parking" type="checkbox"><span> Parking Available </span><br/>
+        <input name="credit" rv-value="widget:place:credit" type="checkbox"><span> Accepts Credit Cards</span>
+        <input name="events" rv-value="widget:place:events" type="checkbox"><span> Offers Events or Classes</span>
         <textarea class="form-control input-lg" placeholder="History" rv-value="widget:place:history"></textarea>
         <input placeholder="Historical Image" class="form-control input-lg" type="text" rv-value="widget:place:historical-image">
           <p class="input_desc">Please enter the url for an associated hsitorical image already online (must end in a .jpg or .png)</p>

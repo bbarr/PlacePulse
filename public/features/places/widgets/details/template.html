@@ -10,13 +10,15 @@
         <div rv-show="widget:tab | eql details">
           <div class="row">
             <div class="col-xs-6 col-sm-4">
-              <img class="img-thumbnail" rv-src="widget:place:photo | foursquarePhoto | default http://placehold.it/200x200" />
+              <img class="img-thumbnail" rv-unless="widget:place:photo" rv-src="widget:place:foursquarePhoto | foursquarePhoto | default http://placehold.it/200x200" />
+              <img class="img-thumbnail" rv-if="widget:place:photo" rv-src="widget:place:photo" />
             </div>
             <div class="col-xs-6 col-sm-8">
               <div class="place-detail"><strong>Address:</strong><span>{ widget:place:location.street }</div>
               <div rv-show="widget:place:hoursDisplay" class="place-detail"><strong>Hours:</strong><span rv-html="widget:place:hoursDisplay | asHours"></span></div>
               <div class="place-detail"><strong>Phone:</strong><span>{ widget:place:phone }</span></div>
               <div class="place-detail"><strong>Website:</strong><span>{ widget:place:website }</span></div>
+              <div class="place-detail"><strong>Menu:</strong><span><a rv-href="widget:place:menu.url" target="_blank">Menu</a></span></div>
               <div class="place-detail" rv-show="widget:place:rating"><strong>Foursquare Rating:</strong><span>{ widget:place:rating }</span></div>
             </div>
             <div rv-show="widget:place:description" class="description col-xs-12">
