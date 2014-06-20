@@ -23,7 +23,7 @@ hub.on('getCategoryForPlace', function(place, cb) {
   if (place.get('category')) return place.get('category')
 
   var category = _.find(cache.categories, function(cat) {
-    var id = (place.get('categoryIds') || [])[0]
+    var id = _.last(place.get('categoryIds') || [])
     if (!id) return
     return _.find(cat.factualIds, function(set) {
       var pairs = set.split('-')
