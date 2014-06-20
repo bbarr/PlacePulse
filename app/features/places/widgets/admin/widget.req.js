@@ -20,7 +20,7 @@ module.exports = asWidget('places-admin', function(hub) {
       _.each(cat.subCategories, function(sub) {
         if (sub.id == raw.category) {
           raw.categoryIds = sub.categoryIds
-          raw.categoryLabels = sub.categoryLabels
+          raw.categoryLabels = [ sub.categoryLabels ]
           delete raw.category
         }
       })
