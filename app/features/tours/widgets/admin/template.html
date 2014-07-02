@@ -27,7 +27,7 @@
       <div rv-each-place="widget:selected:places" class="form-group">
         <button rv-on-click="widget.removePlace" class="btn btn-danger removeTour"><i class="fa fa-trash-o"></i></button>
         <span>{ place:name }</span>
-        <textarea rv-value="place:description" class="place form-control" placeholder="Notes"></textarea>
+        <textarea rv-value="place:tourNotes" class="place form-control" placeholder="Notes"></textarea>
       </div>
       <p rv-if="widget:selected:places | isEmpty" class="well">
         No pleaces here yet. Browse around our map and add them from the list.
